@@ -1,0 +1,37 @@
+/* ===========================================================================
+   PRINT / PDF overrides — applied on top of styles_core.css (WeasyPrint)
+   US Letter, generous margins, running footer with page numbers.
+   =========================================================================== */
+@page {
+  size: Letter;
+  margin: 18mm 16mm 16mm;
+  @bottom-center {
+    content: "AI in Clinical Medicine & Education";
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 7.5pt;
+    color: #9a98a4;
+  }
+  @bottom-right {
+    content: "Page " counter(page) " of " counter(pages);
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 7.5pt;
+    color: #9a98a4;
+  }
+}
+
+body.pdf { font-size: 10.5pt; }
+body.pdf .page { padding: 0; }
+
+/* Keep section headers from being orphaned at the bottom of a page */
+.content h2, .content h3, .content h4 { break-after: avoid; }
+.content h2 { break-before: auto; }
+.references, .colophon { break-inside: avoid; }
+.content blockquote, .content .admonition, .content table { break-inside: avoid; }
+
+/* Print-color fidelity for the section banners */
+.content h2, .draft-banner, .content th, .content .admonition {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.draft-banner { margin-bottom: 10px; }

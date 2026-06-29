@@ -1,0 +1,8 @@
+# DOM AI Newsletter — build pipeline dependencies
+# Pinned for reproducibility. Re-pin with: .venv/bin/pip freeze > requirements.lock.txt
+Markdown==3.7
+Jinja2==3.1.4
+PyYAML==6.0.2
+python-frontmatter==1.1.0
+weasyprint==62.3
+Pygments==2.18.0

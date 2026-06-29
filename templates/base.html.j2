@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ meta.get('title', 'AI in Clinical Medicine & Education') }} — {{ meta.get('month_year', '') }}</title>
+<style>
+{{ css }}
+</style>
+</head>
+<body class="{{ 'pdf' if for_pdf else 'screen' }}{{ ' draft' if is_draft else '' }}">
+
+{% if is_draft %}<div class="draft-banner">DRAFT — {{ verified }}/{{ total }} claims verified · not for distribution</div>{% endif %}
+
+<div class="page">
+
+  <header class="masthead">
+    {% if logo %}<img class="logo" src="{{ logo }}" alt="logo">{% endif %}
+    <div class="masthead-text">
+      <div class="kicker">{{ meta.get('department', 'Department of Medicine') }} · Education Committee</div>
+      <h1 class="title">{{ meta.get('title', 'AI in Clinical Medicine & Education') }}</h1>
+      {% if meta.get('tagline') %}<div class="tagline">{{ meta.tagline }}</div>{% endif %}
+    </div>
+    <div class="issue-meta">
+      {% if meta.get('volume') %}<div>Vol. {{ meta.volume }}{% if meta.get('issue_number') %} · No. {{ meta.issue_number }}{% endif %}</div>{% endif %}
+      <div class="issue-month">{{ meta.get('month_year', '') }}</div>
+    </div>
+  </header>
+
+  {% if meta.get('editors') %}
+  <div class="byline">Edited by {{ meta.editors | join(', ') if meta.editors is iterable and meta.editors is not string else meta.editors }}</div>
+  {% endif %}
+
+  <main class="content">
+    {{ body }}
+  </main>
+
+  {% if sources %}
+  <section class="references">
+    <h2>References &amp; Sources</h2>
+    <ol class="ref-list">
+      {% for s in sources %}
+      <li id="src-{{ s.id }}">
+        {% if s.get('citation') %}{{ s.citation }}{% else %}{{ s.get('claim', '') }}{% endif %}
+        {% if s.get('url') %}<a href="{{ s.url }}">{{ s.url }}</a>{% endif %}
+        {% if s.get('doi') %} doi:{{ s.doi }}{% endif %}
+        {% if s.get('pmid') %} PMID:{{ s.pmid }}{% endif %}
+        {% if not s.get('verified') %} <span class="unverified">[UNVERIFIED]</span>{% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+  {% endif %}
+
+  <footer class="colophon">
+    <p class="disclaimer">{{ meta.get('disclaimer', 'This newsletter is for educational purposes within the Department of Medicine. Clinical AI tools described here are not endorsements; verify suitability and institutional approval before any clinical use. No protected health information appears in this publication.') }}</p>
+    <p class="build-note">Built {{ build_date }} · {{ verified }}/{{ total }} sources verified · reproducible from source via <code>build.py</code></p>
+  </footer>
+
+</div>
+</body>
+</html>

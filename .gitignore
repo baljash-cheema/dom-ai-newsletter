@@ -1,0 +1,16 @@
+# Python virtual environment (recreate from requirements.txt)
+.venv/
+__pycache__/
+*.pyc
+
+# OS noise
+.DS_Store
+
+# Generated newsletter outputs — rebuild from source with ./build.sh
+# (we keep source content.md + sources.yaml in git; outputs are reproducible)
+issues/**/output/
+
+# Per global policy: never commit raw data, drafts containing unreleased
+# trainee info you haven't cleared, credentials, or anything with PHI/PII.
+*.env
+secrets*

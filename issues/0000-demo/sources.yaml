@@ -1,0 +1,22 @@
+# Layout demo ledger. Left intentionally UNVERIFIED so the build produces a
+# watermarked DRAFT — demonstrating the verification gate.
+sources:
+  - id: s1
+    claim: "Sample placeholder claim for layout demonstration only."
+    citation: "Sample Author. Sample Title. Sample Journal. 2026."
+    doi: ""
+    pmid: ""
+    url: ""
+    verified: false
+    verified_by: ""
+    notes: "Demo entry — not a real claim."
+
+  - id: s2
+    claim: "Sample placeholder claim about a tool capability."
+    citation: "Sample vendor documentation."
+    doi: ""
+    pmid: ""
+    url: ""
+    verified: false
+    verified_by: ""
+    notes: "Demo entry — not a real claim."

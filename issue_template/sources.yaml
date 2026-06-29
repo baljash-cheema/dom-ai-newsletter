@@ -1,0 +1,37 @@
+# =============================================================================
+# SOURCE LEDGER — the backbone of the no-hallucination guarantee.
+#
+# Every factual claim in content.md must have an entry here. The editorial-review
+# sub-agent fills in `verified` only after independently confirming the claim
+# against the cited source. build.py watermarks the output DRAFT until every
+# entry is verified: true. `./build.sh --final` refuses to build otherwise.
+#
+# Fields:
+#   id        short key matching the [^id] footnote in content.md (required)
+#   claim     the exact assertion being made, in one sentence (required)
+#   citation  full human-readable citation as it should appear in References
+#   doi / pmid / url   machine-checkable identifiers (include whatever exists)
+#   verified  false until a sub-agent confirms claim ⇄ source (boolean)
+#   verified_by   "editorial-review-agent YYYY-MM-DD" or a person's initials
+#   notes     where in the source the claim is supported (page/section/quote)
+# =============================================================================
+sources:
+  - id: s1
+    claim: "[PLACEHOLDER — the single factual assertion this source supports]"
+    citation: "Author A, Author B. Title. Journal. Year;Vol(Issue):pages."
+    doi: ""
+    pmid: ""
+    url: ""
+    verified: false
+    verified_by: ""
+    notes: ""
+
+  - id: s2
+    claim: "[PLACEHOLDER]"
+    citation: ""
+    doi: ""
+    pmid: ""
+    url: ""
+    verified: false
+    verified_by: ""
+    notes: ""
