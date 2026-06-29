@@ -1,0 +1,65 @@
+/* ===========================================================================
+   COMPACT PRINT overrides — applied on top of core + print for an
+   email-length (~2-page) PDF. Same content, tighter everything.
+   Built only with: ./build.sh <issue> --compact   (suffix: -compact.pdf)
+   =========================================================================== */
+@page {
+  size: Letter;
+  margin: 10mm 12mm 11mm;
+  @bottom-center { font-size: 6.5pt; }
+  @bottom-right  { font-size: 6.5pt; }
+}
+
+body.pdf { font-size: 8.7pt; line-height: 1.34; }
+
+/* Masthead */
+.masthead { padding-bottom: 7px; border-bottom-width: 2px; }
+.masthead .logo { height: 40px; }
+.title { font-size: 17pt; }
+.tagline { font-size: 8.5pt; margin-top: 1px; }
+.kicker { font-size: 7pt; }
+.issue-month { font-size: 9pt; }
+.byline { margin-top: 4px; font-size: 8pt; }
+
+/* Section + sub headers */
+.content h2 { font-size: 10.5pt; margin: 13px 0 7px; padding: 4px 9px; }
+.content h2:first-child { margin-top: 9px; }
+.content h3 { font-size: 10pt; margin: 9px 0 3px; }
+.content h4 { margin: 7px 0 2px; }
+.content p { margin: 0 0 6px; }
+.content ul, .content ol { margin: 0 0 6px; }
+.content li { margin-bottom: 2px; }
+
+/* Callout boxes */
+.content .admonition { padding: 7px 11px; margin: 9px 0; }
+.content .admonition.takeaways { padding: 9px 13px; }
+.content .admonition.takeaways li { margin-bottom: 2px; }
+.content .admonition-title { font-size: 8pt; margin-bottom: 2px; }
+
+/* Stat callout */
+.statcard { padding: 8px 12px; margin: 9px 0; gap: 11px; }
+.statcard .stat-num { font-size: 22pt; }
+.statcard .stat-text { font-size: 8.7pt; }
+
+/* Cards */
+.cardrow { margin: 9px -5px; }
+.cardrow .card { margin: 0 5px; padding: 8px 10px; border-top-width: 3px; }
+.cardrow .card h4 { font-size: 9.5pt; margin-bottom: 3px; }
+.cardrow .card p { font-size: 8.3pt; }
+.cardrow .card .card-label { font-size: 6.8pt; }
+
+/* Stepper */
+.stepper { margin: 8px -3px 4px; }
+.stepper .step { margin: 0 3px; padding: 5px 3px; }
+.stepper .step .step-letter { font-size: 12pt; }
+.stepper .step .step-label { font-size: 6pt; }
+
+/* Tables */
+.content table { font-size: 8.3pt; margin: 8px 0; }
+.content th, .content td { padding: 3px 6px; }
+
+/* References + footer */
+.content .footnote { margin-top: 16px; padding-top: 5px; }
+.content .footnote::before { font-size: 10pt; }
+.content .footnote ol { font-size: 7.5pt; }
+.colophon { margin-top: 14px; padding-top: 6px; font-size: 6.8pt; }
