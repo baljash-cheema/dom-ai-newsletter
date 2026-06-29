@@ -73,6 +73,7 @@ ISSUES = ROOT / "issues"
 
 MD_EXTENSIONS = [
     "extra",        # tables, footnotes, attr_list, def_list, abbr, etc.
+    "md_in_html",   # allow markdown inside raw <div> blocks (visual cards)
     "sane_lists",
     "smarty",       # typographic quotes / dashes
     "toc",

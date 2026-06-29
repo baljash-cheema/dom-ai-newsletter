@@ -27,6 +27,13 @@ body.pdf .page { padding: 0; }
 .content h2 { break-before: auto; }
 .references, .colophon { break-inside: avoid; }
 .content blockquote, .content .admonition, .content table { break-inside: avoid; }
+.statcard, .cardrow, .stepper, .cardrow .card, .stepper .step { break-inside: avoid; }
+
+/* Color fidelity for the new visual components */
+.content .admonition.takeaways, .statcard, .cardrow .card, .stepper .step {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
 
 /* Print-color fidelity for the section banners */
 .content h2, .draft-banner, .content th, .content .admonition {

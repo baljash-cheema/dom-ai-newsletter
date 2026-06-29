@@ -36,6 +36,21 @@ source-verified before it ships.
 Outputs: `issues/<issue>/output/newsletter-<issue>.{html,pdf}` (HTML is
 self-contained/email-ready; PDF is print-quality US Letter).
 
+## Visual components (the newsletter is visual-first / low-text)
+Defined in `templates/styles_core.css` (and print rules in `styles_print.css`).
+Keep prose short and let these carry meaning. Markdown-inside-HTML is enabled
+(`md_in_html`) so cards can hold simple markup.
+- `!!! takeaways "This issue at a glance"` → purple scan box; keep at the top of every issue.
+- `!!! action "Try this on rounds"` → green "do this" box (sample scripts/dialogue).
+- `!!! note "Editor's Perspective — from the subcommittee"` → opinion box (institutional voice).
+- `!!! caution "Pitfall of the month …"` → red caution box.
+- `<div class="statcard"><div class="stat-num">1 in 3+</div><div class="stat-text">…</div></div>` → big-number callout.
+- `<div class="cardrow"> <div class="card">…</div> … </div>` → 2–3 side-by-side cards
+  (add class `warn` to a card for a red top border). Inside a card use
+  `<span class="card-label">…</span><h4>Title</h4><p>…</p>`.
+- `<div class="stepper"> <div class="step"><span class="step-letter">D</span><span class="step-label">Diagnose</span></div> … </div>` → horizontal step badges.
+Working example to copy from: `issues/2026-06/content.md`.
+
 ## Anti-hallucination machinery (how it's enforced, not just promised)
 - **`sources.yaml`** per issue: every claim → citation → resolvable id (DOI/PMID/URL)
   → `verified` flag. The build watermarks **DRAFT** until all are `verified: true`,

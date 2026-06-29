@@ -19,139 +19,116 @@ disclaimer: >
   protected health information appears in this publication.
 ---
 
-Welcome to the inaugural issue of *AI in Medical Education*, a monthly briefing
-from the Department of Medicine Education AI in MedEd Subcommittee. Our aim is
-simple: help every educator in the department feel confident supervising,
-teaching, and using AI — whether or not you consider yourself an expert in the
-technology. Each issue takes one piece of AI scholarship and turns it into
-practical, ready-to-use strategies for the wards and clinic. We open with a major
-*New England Journal of Medicine* review on exactly that challenge.
+Welcome to the inaugural issue of *AI in Medical Education* — a monthly briefing
+from the DOM Education AI in MedEd Subcommittee. Our goal: help every educator
+feel confident supervising, teaching, and using AI, no expertise required.
+
+!!! takeaways "This issue at a glance"
+    - **Supervise AI like any other tool** — a learner using AI is a teaching moment, not a violation.
+    - **Run the DEFT-AI debrief** — a 2-minute script to coach any AI interaction (inside).
+    - **Match the mode to the task** — *centaur* for high-stakes, *cyborg* for low-risk and validated.
+    - **Verify, *then* trust** — an answer that "sounds right" isn't evidence that it is.
 
 ## Article of the Month
 
 **Educational Strategies for Clinical Supervision of Artificial Intelligence
-Use.** Abdulnour RE, Gin B, Boscardin CK. *N Engl J Med.* 2025;393(8):786–797.
-Review Article — Medical Education.[^1]
+Use.** Abdulnour RE, Gin B, Boscardin CK. *N Engl J Med.* 2025;393(8):786–797.[^1]
 
-Large language models (LLMs) now generate fluent, confident-sounding clinical
-reasoning, which makes them look more authoritative than earlier decision-support
-tools and raises the stakes when a learner offloads real reasoning onto them.[^1]
-This review argues the central question is no longer *whether* trainees should use
-AI, but how educators should **supervise** that use — and it offers a structured
-way to do it.
+The question is no longer *whether* trainees use AI — it's how we **supervise**
+it. Large language models sound fluent and authoritative, which is exactly why
+offloading real reasoning onto them is risky.[^1]
 
-**Three named risks.** The authors describe *deskilling* (loss of a skill the
-learner already had), *never-skilling* (failing to develop a skill at all because
-AI was leaned on too early), and *mis-skilling* (learning the wrong thing because
-an AI error or bias goes unchallenged).[^1] These are amplified because LLMs behave
-as unpredictable "black boxes"; the review notes that in one study, more than a
-third of advanced medical students failed to catch erroneous LLM answers to
-clinical scenarios.[^1]
+<div class="statcard">
+  <div class="stat-num">1 in 3+</div>
+  <div class="stat-text">In one study the review cites, more than a third of advanced medical students failed to catch <strong>erroneous</strong> AI answers to clinical scenarios.</div>
+</div>
 
-**The "AI interaction" as a teachable moment.** The review defines an *AI
-interaction* as any moment a clinician receives AI output they cannot fully
-retrace or verify — a point that should trigger a deliberate pause before the
-output is trusted.[^1] Recognizing that pause is, in the authors' framing, the
-foundation of critical thinking in the age of AI — captured in their closing call
-to **"verify *and* trust,"** placing critical appraisal *before* trust, not
-after.[^1]
+**Three risks to watch**[^1]
+
+<div class="cardrow">
+  <div class="card warn"><span class="card-label">Risk 1</span><h4>Deskilling</h4><p>Losing a skill the learner already had.</p></div>
+  <div class="card warn"><span class="card-label">Risk 2</span><h4>Never-skilling</h4><p>Never building the skill — AI was leaned on too early.</p></div>
+  <div class="card warn"><span class="card-label">Risk 3</span><h4>Mis-skilling</h4><p>Learning the wrong thing when an AI error or bias goes unchallenged.</p></div>
+</div>
+
+The authors' fix isn't *less* AI — it's **critical thinking at the moment of
+use**: treat any AI output you can't fully verify as a cue to pause, and
+**verify *and* trust**, in that order.[^1]
 
 !!! note "Editor's Perspective — from the subcommittee"
-    Our take: the real contribution here is cultural, not technical. DEFT-AI
-    reframes a learner's AI use as a routine teaching opportunity — the same
-    reflex we already have when a trainee reaches for UpToDate — rather than
-    something to police. That mindset shift is worth adopting today.
+    The real contribution here is cultural: DEFT-AI reframes a learner's AI use as
+    a routine teaching moment, not something to police — worth adopting now. Two
+    honest caveats: it's a *proposed* model shown with a single fictional vignette
+    (not yet tested in real teaching), and a full debrief for *every* AI
+    interaction is unrealistic under clinic time pressure. **Our suggestion:**
+    adopt the posture today — name the moment, ask how they verified it — and save
+    the full script for higher-stakes cases.
 
-    Three honest caveats for our faculty. First, DEFT-AI is a *proposed* model
-    illustrated with a single fictional vignette; it has not yet been tested for
-    feasibility or impact in real teaching settings. Second, a full five-step
-    debrief for every observed AI interaction may be hard to sustain under
-    inpatient and clinic time pressure, and the review does not say how to triage
-    which moments warrant it. Third, it adds real work for educators — coaching AI
-    literacy *on top of* clinical reasoning — without addressing the faculty
-    development or protected time that would require. The subcommittee's
-    suggestion: adopt the posture now (name the moment; ask how the learner
-    verified the output), and reserve the full script for higher-stakes cases.
+### The DEFT-AI debrief — your 2-minute tool[^1]
 
-### Put it into practice: the DEFT-AI debrief
-
-A 2–3 minute structured conversation to use when you see a learner consult AI
-around a patient encounter. The prompts below are drawn from the article's own
-worked example.[^1]
+<div class="stepper">
+  <div class="step"><span class="step-letter">D</span><span class="step-label">Diagnose</span></div>
+  <div class="step"><span class="step-letter">E</span><span class="step-label">Evidence</span></div>
+  <div class="step"><span class="step-letter">F</span><span class="step-label">Feedback</span></div>
+  <div class="step"><span class="step-letter">T</span><span class="step-label">Teach</span></div>
+  <div class="step"><span class="step-letter">AI</span><span class="step-label">Recommend</span></div>
+</div>
 
 | Step | Ask the learner | Listen for |
 |------|-----------------|------------|
-| **D** — Diagnosis, discussion & discourse | "What AI tool did you use, and how — what did you type in?" | Whether AI replaced, informed, or augmented the learner's own reasoning; how specific the prompt was |
-| **E** — Evidence | "How did you verify the output? Is this tool shown to be accurate and safe for this task?" | Verification habits; awareness of the tool's validation status and limits |
-| **F** — Feedback | "Looking back, how would you rate your own use of AI here? What would you do differently?" | Self-reflection; insight into over- or under-reliance |
-| **T** — Teaching | *Offer one focused point — a clinical-reasoning gap, an AI-literacy tip, or both.* | — |
-| **AI** — Engagement recommendation | *State a plan for next time.* | Keep practicing with AI to **inform** reasoning, not replace it — either cautiously under supervision or independently with self-monitoring; flag any task where AI shouldn't be relied on.[^1] |
+| **D** Diagnose | "What tool did you use, and what did you type in?" | Did AI replace or support their reasoning? |
+| **E** Evidence | "How did you verify it? Is this tool proven safe for this task?" | Verification habits; awareness of limits |
+| **F** Feedback | "How would you rate your own use of AI here?" | Self-reflection; over- or under-reliance |
+| **T** Teach | *Offer one focused point — a reasoning gap, an AI-literacy tip, or both.* | — |
+| **AI** Recommend | *Set a plan for next time.* | Use AI to **inform**, not replace — supervised or self-monitored.[^1] |
 
-!!! note "Try this — a sample bedside exchange"
-    Adapted from the review's vignette of a resident who quietly used a phone
-    chatbot for a differential.[^1]
+!!! action "Try this on rounds"
+    **You:** "You checked AI before we discussed Mr. C — what did you ask it, and how did you check the answer?"
 
-    **Educator:** "I noticed you checked an AI tool before we discussed Mr. C —
-    tell me what you asked it and what came back."
-    **Resident:** "I typed in his symptoms and asked for the differential; it gave
-    a ranked list with a top diagnosis."
-    **Educator:** "How did you check that answer?"
-    **Resident:** "I didn't, really — it sounded reasonable."
-    **Educator:** "That's exactly the moment to slow down. Before it goes in the
-    note: what's *your* top diagnosis, and where do you and the AI agree or
-    disagree? Going forward, draft your own differential first and use the AI as a
-    check — a centaur approach, given how high-stakes this is."
+    **Resident:** "I didn't, really… it sounded reasonable."
+
+    **You:** "That's the moment to slow down. What's *your* top diagnosis — and where do you and the AI disagree? Draft yours first, then use the AI as a check."
 
 ## AI Explainer — Centaur vs. Cyborg
 
-If the DEFT-AI debrief is *how* to coach an AI interaction, centaur-vs-cyborg is
-*how to decide which mode fits the task*. The review describes two ways people
-collaborate with AI and argues skilled clinicians shift between them based on the
-task's risk and how well-validated the tool is.[^1]
+Two ways people work with AI. The skill is shifting between them based on the
+task's risk and how validated the tool is.[^1]
 
-| Mode | What it looks like | Best suited for | Watch out for |
-|------|--------------------|-----------------|---------------|
-| **Centaur** | Learner and AI divide the work; the learner keeps the diagnosis and final decisions. | High-stakes, ambiguous, or diagnostic tasks; general-purpose tools not clinically validated. | Under-using a correct AI suggestion out of excess caution. |
-| **Cyborg** | Learner and AI iterate together throughout the whole task. | Low-risk, well-defined tasks with validated tools (e.g., an ambient scribe drafting a note). | Automation bias and deskilling if used for high-stakes reasoning. |
+<div class="cardrow">
+  <div class="card"><span class="card-label">Divide the work · human leads</span><h4>Centaur</h4><p><strong>Looks like:</strong> learner and AI split the task; the human keeps the diagnosis and final call.<br><strong>Best for:</strong> high-stakes, ambiguous, or unvalidated tools.<br><strong>Watch:</strong> under-using a correct AI suggestion.</p></div>
+  <div class="card"><span class="card-label">Work in lockstep</span><h4>Cyborg</h4><p><strong>Looks like:</strong> learner and AI iterate together throughout.<br><strong>Best for:</strong> low-risk, well-defined, validated tools (e.g. an ambient scribe).<br><strong>Watch:</strong> automation bias and deskilling on high-stakes reasoning.</p></div>
+</div>
 
-The teaching point for trainees: neither mode is good or bad in itself — the skill
-is matching the mode to the task and keeping human judgment in charge where it
-matters.[^1]
+**Teaching point:** neither mode is good or bad — match it to the task, and keep
+human judgment where it counts.[^1]
 
 ## Trainee Spotlight
 
 !!! note "Placeholder — content needed"
-    *This section showcases what a resident or fellow is doing with AI.* To fill
-    it, the editors supply the trainee's name, the project or workflow, and any
-    quote (used with permission; no PHI). Claude then formats it and fact-checks
-    any technical claims about the tools involved.
+    *Showcase a resident or fellow using AI.* Editors supply the name, the project
+    or workflow, and any quote (used with permission; no PHI); Claude formats it
+    and fact-checks any technical claims.
 
 ## News, Tools & Pitfalls
 
-**In the news.** *[Placeholder — 2–3 dated, verified developments. The editors flag
-items; Claude verifies each against a primary source before it ships.]*
+!!! caution "Pitfall of the month — automation bias"
+    When clinicians were shown AI predictions carrying systematic bias, they were
+    **more likely to adopt the wrong conclusion** themselves.[^1] Treat AI output
+    as a preliminary input to check against your own reasoning — not a verdict.
+
+**In the news.** *[Placeholder — 2–3 dated, verified developments.]*
 
 **Tool tip.** *[Placeholder — one practical, institution-appropriate tip.]*
 
-!!! caution "Pitfall of the month — automation bias"
-    The review highlights *mis-skilling*: when clinicians were shown AI-generated
-    predictions carrying systematic bias, they became more likely to adopt those
-    incorrect conclusions themselves.[^1] The lesson for trainees and faculty
-    alike: an AI suggestion that "sounds right" is not evidence that it is. Treat
-    AI output as a preliminary input to be checked against your own reasoning —
-    not a verdict.
-
 ---
 
-*Have a trainee using AI in an interesting way, or a topic you'd like us to
-cover? Reach out to any subcommittee member — we'd love to feature it.*
-
-*Coming next month: how to assess a learner's ability to critically appraise an
-AI tool — plus more ready-to-use scripts for the wards.*
+*Have a trainee using AI in an interesting way, or a topic you'd like us to cover?
+Reach out to any subcommittee member.* · *Next month: how to assess a learner's
+ability to critically appraise an AI tool.*
 
 [^1]: Abdulnour RE, Gin B, Boscardin CK. Educational Strategies for Clinical
     Supervision of Artificial Intelligence Use. *N Engl J Med.*
     2025;393(8):786–797. PMID: 40834302.
     [doi:10.1056/NEJMra2503232](https://doi.org/10.1056/NEJMra2503232).
-    Citation confirmed via PubMed; all claims above verified against the full
-    text (see `sources.yaml`).
+    Citation confirmed via PubMed; all claims verified against the full text
+    (see `sources.yaml`).

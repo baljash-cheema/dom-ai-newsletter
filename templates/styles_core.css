@@ -149,6 +149,116 @@ sup a { text-decoration: none; }
 .content .admonition.warning .admonition-title,
 .content .admonition.danger .admonition-title { color: var(--warn); }
 
+/* ===========================================================================
+   VISUAL COMPONENTS — scannable, low-text building blocks.
+   Use sparingly; they carry meaning the prose used to.
+   =========================================================================== */
+
+/* --- "At a glance" takeaways box (admonition class: takeaways) ----------- */
+.content .admonition.takeaways {
+  background: var(--accent);
+  border: none;
+  border-radius: 6px;
+  padding: 14px 18px;
+}
+.content .admonition.takeaways .admonition-title {
+  color: #fff;
+  font-size: 10pt;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+.content .admonition.takeaways p,
+.content .admonition.takeaways li { color: #f3eefa; }
+.content .admonition.takeaways ul { margin: 0; padding-left: 18px; }
+.content .admonition.takeaways li { margin-bottom: 5px; }
+.content .admonition.takeaways strong { color: #fff; }
+
+/* --- "Do this on rounds" action box (admonition class: action) ---------- */
+.content .admonition.action {
+  border-left-color: #1f8a70;
+  background: #effaf5;
+}
+.content .admonition.action .admonition-title { color: #1f8a70; }
+
+/* --- Big-stat callout --------------------------------------------------- */
+.statcard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid var(--rule);
+  border-left: 5px solid var(--accent);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin: 14px 0;
+  background: var(--bg-soft);
+}
+.statcard .stat-num {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 30pt;
+  line-height: 1;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.statcard .stat-text { font-size: 10pt; color: var(--ink-soft); }
+
+/* --- Card rows (risk cards, mode comparison) ---------------------------- */
+.cardrow { display: flex; margin: 14px -6px; }
+.cardrow .card {
+  flex: 1;
+  margin: 0 6px;
+  border: 1px solid var(--rule);
+  border-top: 4px solid var(--accent);
+  border-radius: 6px;
+  padding: 11px 13px;
+  background: #fff;
+}
+.cardrow .card.warn { border-top-color: var(--warn); }
+.cardrow .card h4 {
+  margin: 0 0 5px;
+  font-family: var(--sans);
+  font-size: 10.5pt;
+  color: var(--ink);
+}
+.cardrow .card p { margin: 0; font-size: 9.5pt; color: var(--ink-soft); }
+.cardrow .card .card-label {
+  font-family: var(--sans);
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* --- DEFT-AI stepper (horizontal badge row) ----------------------------- */
+.stepper { display: flex; margin: 12px -4px 6px; }
+.stepper .step {
+  flex: 1;
+  margin: 0 4px;
+  text-align: center;
+  background: var(--bg-soft);
+  border: 1px solid var(--rule);
+  border-bottom: 3px solid var(--accent);
+  border-radius: 5px;
+  padding: 8px 4px;
+}
+.stepper .step .step-letter {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 15pt;
+  color: var(--accent);
+  display: block;
+}
+.stepper .step .step-label {
+  font-family: var(--sans);
+  font-size: 7pt;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  display: block;
+  margin-top: 2px;
+}
+
 /* Tables */
 .content table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 10pt; }
 .content th, .content td { border: 1px solid var(--rule); padding: 6px 9px; text-align: left; vertical-align: top; }
