@@ -172,6 +172,26 @@ code { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.9em; bac
 .ref-list a { color: var(--accent-2); word-break: break-all; }
 .unverified { color: var(--warn); font-family: var(--sans); font-weight: 700; font-size: 8pt; }
 
+/* ---- Markdown footnotes (in-text citations → list at end of body) ------ */
+.content .footnote {
+  margin-top: 30px;
+  border-top: 2px solid var(--accent);
+  padding-top: 8px;
+}
+.content .footnote::before {
+  content: "References & Sources";
+  display: block;
+  font-family: var(--sans);
+  font-size: 12pt;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.content .footnote hr { display: none; }
+.content .footnote ol { font-size: 9pt; color: var(--ink-soft); padding-left: 20px; }
+.content .footnote li { margin-bottom: 6px; }
+.content .footnote a { color: var(--accent-2); word-break: break-word; }
+
 /* ---- Colophon / footer ------------------------------------------------- */
 .colophon {
   margin-top: 26px;

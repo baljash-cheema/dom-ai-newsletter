@@ -1,0 +1,95 @@
+# Verification ledger for the June 2026 issue.
+# Every factual claim in content.md (all from the featured article this month)
+# is recorded here with the location in the source that supports it. Verified by
+# reading the full article PDF; the citation itself was confirmed via PubMed
+# (PMID 40834302). In-text these all map to footnote [^1].
+sources:
+  - id: s1
+    claim: "Featured article — full citation and identifiers."
+    citation: "Abdulnour RE, Gin B, Boscardin CK. Educational Strategies for Clinical Supervision of Artificial Intelligence Use. N Engl J Med. 2025;393(8):786-797."
+    doi: "10.1056/NEJMra2503232"
+    pmid: "40834302"
+    url: "https://doi.org/10.1056/NEJMra2503232"
+    verified: true
+    verified_by: "PubMed lookup + full-text PDF, 2026-06-29"
+    notes: "PubMed PMID 40834302 confirms authors, journal, 2025, vol 393(8), pp 786-797, Review. Matches PDF p.786 masthead/DOI."
+
+  - id: s2
+    claim: "LLMs generate fluent, confident-sounding reasoning, appearing more authoritative than earlier decision tools and raising the stakes of offloading reasoning onto them."
+    citation: "Featured article (see s1)."
+    doi: "10.1056/NEJMra2503232"
+    pmid: "40834302"
+    url: ""
+    verified: true
+    verified_by: "full-text PDF p.786, 2026-06-29"
+    notes: "p.786 col 1: LLMs 'simulate knowledge generation and clinical reasoning with humanlike fluency,' giving 'the appearance of agency'; off-loading reasoning can lead to automation bias/deskilling."
+
+  - id: s3
+    claim: "The article defines deskilling, never-skilling, and mis-skilling."
+    citation: "Featured article (see s1)."
+    doi: "10.1056/NEJMra2503232"
+    pmid: "40834302"
+    url: ""
+    verified: true
+    verified_by: "full-text PDF p.786 + Key Points p.787, 2026-06-29"
+    notes: "p.786: 'deskilling (loss of previously acquired skills),' 'never-skilling (failure to develop essential competencies),' 'mis-skilling (reinforcement of incorrect behavior due to AI errors or bias).'"
+
+  - id: s4
+    claim: "In one study, more than a third of advanced medical students missed erroneous LLM answers to clinical scenarios."
+    citation: "Featured article (see s1), reporting a cited study."
+    doi: "10.1056/NEJMra2503232"
+    pmid: "40834302"
+    url: ""
+    verified: true
+    verified_by: "full-text PDF p.786, 2026-06-29"
+    notes: "p.786 col 2: 'more than a third of advanced medical students missed erroneous LLM answers to clinical scenarios' (article's reference 11). Stated as the article's report of a cited study, not our independent claim."
+
+  - id: s5
+    claim: "An 'AI interaction' is defined as a moment a clinician receives AI output they cannot fully retrace/verify, prompting a pause before trust."
+    citation: "Featured article (see s1)."
+    doi: "10.1056/NEJMra2503232"
+    pmid: "40834302"
+    url: ""
+    verified: true
+    verified_by: "full-text PDF p.790, 2026-06-29"
+    notes: "p.790: an AI interaction is a moment when a computational artefact provides a judgement that 'cannot be traced,' prompting a 'leap of faith'; the pause/cognitive pause is needed (also p.793 AI literacy)."
+
+  - id: s6
+    claim: "DEFT-AI = Diagnosis & discussion, Evidence, Feedback, Teaching, and an AI engagement recommendation; adapted from a Socratic precepting (DEFT) model."
+    citation: "Featured article (see s1)."
+    doi: "10.1056/NEJMra2503232"
+    pmid: "40834302"
+    url: ""
+    verified: true
+    verified_by: "full-text PDF p.790-792 + Fig 3, 2026-06-29"
+    notes: "p.790-792 and Fig 3: DEFT (diagnosis, evidence, feedback, teaching) adapted to 'DEFT-AI' adding recommendation for AI engagement; built on a Socratic approach."
+
+  - id: s7
+    claim: "Centaur vs. cyborg: centaur users divide tasks and retain judgment (good for high-stakes/unvalidated tools); cyborg users intertwine work with AI across all stages (good for low-risk/validated tools); clinicians should shift between them by task risk and tool validation."
+    citation: "Featured article (see s1)."
+    doi: "10.1056/NEJMra2503232"
+    pmid: "40834302"
+    url: ""
+    verified: true
+    verified_by: "full-text PDF p.791, 793 + Fig 4, 2026-06-29"
+    notes: "p.791: centaur 'strategically divide tasks,' cyborg 'intertwine their work with AI across all stages of a task.' p.793 + Fig 4: shift between modes by stakes/validation (centaur for high-stakes/unvalidated; cyborg for low-risk/validated, e.g., ambient scribe)."
+
+  - id: s8
+    claim: "Mis-skilling example: clinicians shown AI predictions with systematic bias were more likely to adopt the incorrect predictions."
+    citation: "Featured article (see s1), reporting a cited study."
+    doi: "10.1056/NEJMra2503232"
+    pmid: "40834302"
+    url: ""
+    verified: true
+    verified_by: "full-text PDF p.789, 2026-06-29"
+    notes: "p.789 'MIS-SKILLING': clinicians shown AI-generated predictions with systematic biases (e.g., overestimating pneumonia in older patients) were 'more likely to adopt these incorrect predictions' (article's reference 46)."
+
+  - id: s9
+    claim: "'Verify and trust' — critical appraisal of the AI tool and its output must precede trust; verification is at the heart of AI interactions."
+    citation: "Featured article (see s1)."
+    doi: "10.1056/NEJMra2503232"
+    pmid: "40834302"
+    url: ""
+    verified: true
+    verified_by: "full-text PDF p.795 'VERIFY AND TRUST', 2026-06-29"
+    notes: "p.795: 'the need for verification is at the heart of AI interactions'; fostering a 'verify and trust' paradigm; output 'cannot be fully trusted without verification' (p.790)."

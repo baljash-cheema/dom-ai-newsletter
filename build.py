@@ -181,6 +181,7 @@ def build(issue_dir: Path, final: bool) -> None:
         "logo": logo,
         "sources": sources,
         "is_draft": is_draft,
+        "auto_references": meta.get("auto_references", True),
         "verified": verified,
         "total": total,
         "build_date": _dt.date.today().isoformat(),
