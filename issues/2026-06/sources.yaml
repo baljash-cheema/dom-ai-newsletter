@@ -93,3 +93,23 @@ sources:
     verified: true
     verified_by: "full-text PDF p.795 'VERIFY AND TRUST', 2026-06-29"
     notes: "p.795: 'the need for verification is at the heart of AI interactions'; fostering a 'verify and trust' paradigm; output 'cannot be fully trusted without verification' (p.790)."
+
+  - id: s10
+    claim: "The DEFT-AI debrief is illustrated in the article with example educator questions: which AI tool was used, how it was used, what prompts were entered, how the outputs were verified, whether the tool is shown to be accurate/safe, and learner self-evaluation/improvement. The sample bedside exchange (resident who didn't verify because the answer 'seemed reasonable') is adapted from this vignette."
+    citation: "Featured article (see s1), Figure 3 worked example."
+    doi: "10.1056/NEJMra2503232"
+    pmid: "40834302"
+    url: ""
+    verified: true
+    verified_by: "full-text PDF Fig 3 (p.792) + p.790-791, 2026-06-29"
+    notes: "Fig 3 shows verbatim example questions ('What specific AI did you use?', 'What prompts did you enter in the app?', 'How did you verify the AI-generated outputs?', 'Is the AI that you used shown to be accurate and safe?', 'How do you evaluate your own use of AI in this case?', 'How can you improve your use of AI?') and the resident reply 'I didn't. The answers seemed reasonable to me.' Our table/dialogue paraphrase this faithfully. The script table is an adaptation of a teaching tool, not an independent factual claim."
+
+  - id: s11
+    claim: "The AI engagement recommendation that concludes the debrief is to keep practicing with AI to inform (not replace) reasoning — with rare exceptions, either cautiously under (indirect/intermittent) supervision or independently with self-monitoring and education."
+    citation: "Featured article (see s1)."
+    doi: "10.1056/NEJMra2503232"
+    pmid: "40834302"
+    url: ""
+    verified: true
+    verified_by: "full-text PDF p.791 'AI Engagement Recommendation' + Fig 3, 2026-06-29"
+    notes: "p.791: 'With rare exceptions, the educator should encourage ongoing practice with AI... the learner can cautiously engage with the AI tool under indirect or intermittent direct supervision or that the learner can safely use the tool without supervision but with ongoing self-monitoring and education.' Fig 3: 'use AI to inform your reasoning rather than replace it.' We deliberately avoided the sample's overstated 'three choices incl. do-not-use'; framed as 'flag any task where AI shouldn't be relied on,' consistent with 'rare exceptions.'"
