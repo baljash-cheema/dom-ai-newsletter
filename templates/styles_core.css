@@ -182,9 +182,8 @@ sup a { text-decoration: none; }
 
 /* --- Big-stat callout --------------------------------------------------- */
 .statcard {
-  display: flex;
-  align-items: center;
-  gap: 14px;
+  display: table;
+  width: 100%;
   border: 1px solid var(--rule);
   border-left: 5px solid var(--accent);
   border-radius: 6px;
@@ -193,14 +192,23 @@ sup a { text-decoration: none; }
   background: var(--bg-soft);
 }
 .statcard .stat-num {
+  display: table-cell;
+  vertical-align: middle;
+  width: 1%;
+  white-space: nowrap;
+  padding-right: 16px;
   font-family: var(--sans);
   font-weight: 800;
   font-size: 30pt;
   line-height: 1;
   color: var(--accent);
-  white-space: nowrap;
 }
-.statcard .stat-text { font-size: 10pt; color: var(--ink-soft); }
+.statcard .stat-text {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 10pt;
+  color: var(--ink-soft);
+}
 
 /* --- Card rows (risk cards, mode comparison) ---------------------------- */
 .cardrow { display: flex; margin: 14px -6px; }
@@ -301,6 +309,9 @@ code { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.9em; bac
 .content .footnote ol { font-size: 9pt; color: var(--ink-soft); padding-left: 20px; }
 .content .footnote li { margin-bottom: 6px; }
 .content .footnote a { color: var(--accent-2); word-break: break-word; }
+/* Hide the per-citation back-reference arrows (↩) markdown injects — the print
+   font has no glyph for them (renders as tofu boxes) and they're useless in a PDF. */
+.content .footnote a.footnote-backref { display: none; }
 
 /* ---- Colophon / footer ------------------------------------------------- */
 .colophon {
