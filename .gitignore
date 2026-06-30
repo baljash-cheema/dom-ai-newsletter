@@ -14,3 +14,6 @@ issues/**/output/
 # trainee info you haven't cleared, credentials, or anything with PHI/PII.
 *.env
 secrets*
+
+# Internal running notes — keep local, not for the public repo
+memory.md

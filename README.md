@@ -25,7 +25,7 @@ Outputs land in `issues/2026-07/output/`.
 
 ## What's in each issue
 **Article of the Month** · **Trainee Spotlight** · **AI Explainer** ·
-**News, Tools & Pitfalls**
+**Evidence, Tools & Pitfalls**
 
 ## How accuracy is guaranteed
 Every claim is recorded in the issue's `sources.yaml` with a resolvable
@@ -48,4 +48,10 @@ See `issues/0000-demo/` for a layout sample (sample text, not real claims).
 | `workflow/editorial-review.md` | the verification process |
 | `issues/<YYYY-MM>/` | one folder per published month |
 | `CLAUDE.md` | full context for AI-assisted sessions |
-| `memory.md` | running project memory across sessions |
+
+## Built with, and licensed
+
+This newsletter and its build pipeline were created with
+[Claude Code](https://claude.com/claude-code). The code is open-source under the
+[MIT License](LICENSE) — free for anyone to use, adapt, or run for their own
+newsletter. Questions or want a hand adapting it? Open an issue or reach out.
