@@ -88,14 +88,14 @@ use**: treat any AI output you can't fully verify as a cue to pause, and
 
     **You:** "That's the moment to slow down. What's *your* top diagnosis — and where do you and the AI disagree? Draft yours first, then use the AI as a check."
 
-## News, Tools & Pitfalls
+## Evidence, Tools & Pitfalls
 
 !!! caution "Pitfall of the month — automation bias"
     When clinicians were shown AI predictions carrying systematic bias, they were
     **more likely to adopt the wrong conclusion** themselves.[^1] Treat AI output
     as a preliminary input to check against your own reasoning — not a verdict.
 
-**In the news**
+**Evidence watch**
 
 - **AI scribes cut documentation time — but not after-hours work.** Across 5 US
   academic health systems (8,581 ambulatory clinicians), adopting an AI scribe was

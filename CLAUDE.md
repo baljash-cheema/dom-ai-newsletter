@@ -17,7 +17,8 @@ major academic medical center publishing under its own name.
 2. **Trainee Spotlight** — what a resident/fellow is doing with AI (Josh supplies;
    published only with permission; no PHI).
 3. **AI Explainer** — one concept taught for busy faculty.
-4. **News, Tools & Pitfalls** — verified roundup + tool tip + a safety/ethics caution.
+4. **Evidence, Tools & Pitfalls** — a verified roundup of recent research
+   ("Evidence watch") + tool tip + a safety/ethics caution.
 
 ## Sourcing model
 Mix: **Josh supplies** the core article + trainee content; **Claude researches**
