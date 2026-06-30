@@ -26,7 +26,6 @@ feel confident supervising, teaching, and using AI, no expertise required.
 !!! takeaways "This issue at a glance"
     - **Supervise AI like any other tool** — a learner using AI is a teaching moment, not a violation.
     - **Run the DEFT-AI debrief** — a 2-minute script to coach any AI interaction (inside).
-    - **Match the mode to the task** — *centaur* for high-stakes, *cyborg* for low-risk and validated.
     - **Verify, *then* trust** — an answer that "sounds right" isn't evidence that it is.
 
 ## Article of the Month
@@ -89,26 +88,6 @@ use**: treat any AI output you can't fully verify as a cue to pause, and
 
     **You:** "That's the moment to slow down. What's *your* top diagnosis — and where do you and the AI disagree? Draft yours first, then use the AI as a check."
 
-## AI Explainer — Centaur vs. Cyborg
-
-Two ways people work with AI. The skill is shifting between them based on the
-task's risk and how validated the tool is.[^1]
-
-<div class="cardrow">
-  <div class="card"><span class="card-label">Divide the work · human leads</span><h4>Centaur</h4><p><strong>Looks like:</strong> learner and AI split the task; the human keeps the diagnosis and final call.<br><strong>Best for:</strong> high-stakes, ambiguous, or unvalidated tools.<br><strong>Watch:</strong> under-using a correct AI suggestion.</p></div>
-  <div class="card"><span class="card-label">Work in lockstep</span><h4>Cyborg</h4><p><strong>Looks like:</strong> learner and AI iterate together throughout.<br><strong>Best for:</strong> low-risk, well-defined, validated tools (e.g. an ambient scribe).<br><strong>Watch:</strong> automation bias and deskilling on high-stakes reasoning.</p></div>
-</div>
-
-**Teaching point:** neither mode is good or bad — match it to the task, and keep
-human judgment where it counts.[^1]
-
-## Trainee Spotlight
-
-!!! note "Placeholder — content needed"
-    *Showcase a resident or fellow using AI.* Editors supply the name, the project
-    or workflow, and any quote (used with permission; no PHI); Claude formats it
-    and fact-checks any technical claims.
-
 ## News, Tools & Pitfalls
 
 !!! caution "Pitfall of the month — automation bias"
@@ -120,11 +99,14 @@ human judgment where it counts.[^1]
 
 **Tool tip.** *[Placeholder — one practical, institution-appropriate tip.]*
 
+!!! action "AI projects — working on one, or want help starting?"
+    We'll feature trainee and faculty AI projects here as they come up — no fixed
+    schedule. Have a project to showcase, or want hands-on help getting one off the
+    ground? Contact **[subcommittee contact — name / email]**.
+
 ---
 
-*Have a trainee using AI in an interesting way, or a topic you'd like us to cover?
-Reach out to any subcommittee member.* · *Next month: how to assess a learner's
-ability to critically appraise an AI tool.*
+*Have a topic you'd like us to cover? Reach out to any subcommittee member.*
 
 [^1]: Abdulnour RE, Gin B, Boscardin CK. Educational Strategies for Clinical
     Supervision of Artificial Intelligence Use. *N Engl J Med.*
