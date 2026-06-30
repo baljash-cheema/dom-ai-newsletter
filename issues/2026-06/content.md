@@ -109,7 +109,11 @@ use**: treat any AI output you can't fully verify as a cue to pause, and
   and AI-assisted work carried **fewer clinically significant errors** (13.1% vs
   24.3%) — a model for *augmenting* judgment, not replacing it.[^3]
 
-**Tool tip.** *[Placeholder — one practical, institution-appropriate tip.]*
+**Tool tip — make the model show its work.** Add a line like *"list the source
+for each claim and flag anything you're unsure about"* to any general-purpose AI
+prompt. It won't guarantee a correct answer, but it surfaces exactly what you need
+to check — and pairs naturally with *verify, then trust*. Keep it safe: never paste
+patient identifiers into a tool that isn't institutionally approved.
 
 !!! action "AI projects — working on one, or want help starting?"
     We'll feature trainee and faculty AI projects here as they come up — no fixed
