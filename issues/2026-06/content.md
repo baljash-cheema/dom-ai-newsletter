@@ -95,7 +95,19 @@ use**: treat any AI output you can't fully verify as a cue to pause, and
     **more likely to adopt the wrong conclusion** themselves.[^1] Treat AI output
     as a preliminary input to check against your own reasoning — not a verdict.
 
-**In the news.** *[Placeholder — 2–3 dated, verified developments.]*
+**In the news**
+
+- **AI scribes cut documentation time — but not after-hours work.** Across 5 US
+  academic health systems (8,581 ambulatory clinicians), adopting an AI scribe was
+  associated with roughly **16 fewer minutes of documentation** and **13 fewer
+  minutes of total EHR time** per 8 clinic-hours, plus about **half an extra visit
+  per week** — but no significant drop in after-hours ("pajama time") EHR work.
+  Observational, not a randomized trial.[^2]
+- **AI as a second opinion in subspecialty cardiology.** In a randomized trial on
+  complex suspected-cardiomyopathy cases, blinded subspecialists preferred
+  LLM-assisted assessments over cardiologists working alone (**46.7% vs 32.7%**),
+  and AI-assisted work carried **fewer clinically significant errors** (13.1% vs
+  24.3%) — a model for *augmenting* judgment, not replacing it.[^3]
 
 **Tool tip.** *[Placeholder — one practical, institution-appropriate tip.]*
 
@@ -114,3 +126,14 @@ use**: treat any AI output you can't fully verify as a cue to pause, and
     [doi:10.1056/NEJMra2503232](https://doi.org/10.1056/NEJMra2503232).
     Citation confirmed via PubMed; all claims verified against the full text
     (see `sources.yaml`).
+
+[^2]: Rotenstein LS, Holmgren AJ, Thombley R, et al. Changes in Clinician Time
+    Expenditure and Visit Quantity With Adoption of Artificial Intelligence-Powered
+    Scribes: A Multisite Study. *JAMA.* 2026;335(16):1408–1417. PMID: 41920565.
+    [doi:10.1001/jama.2026.2253](https://doi.org/10.1001/jama.2026.2253).
+    Figures confirmed against the PubMed-indexed abstract (see `sources.yaml`).
+
+[^3]: O'Sullivan JW, Palepu A, Saab K, et al. A large language model for complex
+    cardiology care. *Nat Med.* 2026;32(2):616–623. PMID: 41652123.
+    [doi:10.1038/s41591-025-04190-9](https://doi.org/10.1038/s41591-025-04190-9).
+    Figures confirmed against the PubMed-indexed abstract (see `sources.yaml`).
