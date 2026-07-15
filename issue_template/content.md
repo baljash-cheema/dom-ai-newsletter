@@ -11,6 +11,7 @@ editors:
   - "Mac Walter, MD"
   - "Josh Cheema, MD"
   - "Katie Hufmeyer, MD"
+  - "Aashish Didwania, MD"
 auto_references: false
 disclaimer: >
   Produced by the Department of Medicine Education AI in MedEd Subcommittee for
@@ -68,12 +69,12 @@ striking figure and a cardrow for 2–3 parallel ideas.]
     or workflow, and any quote (with permission; no PHI); Claude formats and
     fact-checks it.
 
-## News, Tools & Pitfalls
+## Evidence, Tools & Pitfalls
 
 !!! caution "Pitfall of the month"
     [PLACEHOLDER — a concrete safety/ethics caution, source-verified.[^1]]
 
-**In the news.** *[PLACEHOLDER — 2–3 dated, verified developments.]*
+**Evidence watch.** *[PLACEHOLDER — 2–3 dated, verified developments.]*
 
 **Tool tip.** *[PLACEHOLDER — one practical, institution-appropriate tip.]*
 

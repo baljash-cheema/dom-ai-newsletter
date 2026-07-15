@@ -20,6 +20,28 @@ major academic medical center publishing under its own name.
 4. **Evidence, Tools & Pitfalls** — a verified roundup of recent research
    ("Evidence watch") + tool tip + a safety/ethics caution.
 
+## House format — one look, flexible length
+There is **one** output format (the "house style" in `templates/styles_print.css`),
+tuned so pages fill evenly instead of crowding the top and trailing off empty.
+**Length flexes with content:** two pages is typical, but a longer issue running to
+three or more pages is fine — nothing forces a fixed page count. Do not add a
+separate "compact"/"full" build; if the spacing ever needs a nudge, adjust the
+house scale in `styles_print.css` (it changes every issue, which is the point).
+
+**What stays identical every issue (so it all reads as the same publication):**
+- **Masthead** — title "AI in Medical Education", department line, tagline, `Vol · No`, month.
+- **Editor byline** — the subcommittee roster (Yvonne Lee, Stefanie Reiff, Mac Walter,
+  Josh Cheema, Katie Hufmeyer, Aashish Didwania). Same names, same order, every issue;
+  update the roster in `issue_template/content.md` if membership changes.
+- **"This issue at a glance"** takeaways box at the very top.
+- **The four standing section headers** (above), same names and order.
+- **Colophon/disclaimer** at the foot (institutional voice, PHI/endorsement caveats).
+- **The visual components** (below) — reuse these shapes; don't invent new ones per issue.
+
+The masthead, byline, and colophon are rendered from front-matter + `base.html.j2`, so
+keeping the template front-matter constant keeps them constant. Per-issue writing lives
+only *inside* the four sections.
+
 ## Sourcing model
 Mix: **Josh supplies** the core article + trainee content; **Claude researches**
 the news/tools/explainer sections (PubMed + web tools). Everything Claude adds is

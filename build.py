@@ -132,7 +132,7 @@ def verification_state(sources: list[dict]) -> tuple[int, int, list[dict]]:
 # --------------------------------------------------------------------------- #
 # Build
 # --------------------------------------------------------------------------- #
-def build(issue_dir: Path, final: bool, compact: bool = False) -> None:
+def build(issue_dir: Path, final: bool) -> None:
     content_path = issue_dir / "content.md"
     if not content_path.exists():
         fail(f"No content.md in {issue_dir}")
@@ -209,14 +209,6 @@ def build(issue_dir: Path, final: bool, compact: bool = False) -> None:
     WeasyHTML(string=pdf_doc, base_url=str(ROOT)).write_pdf(str(pdf_out))
     print(f"  ✓ PDF   → {pdf_out.relative_to(ROOT)}")
 
-    # 3) Optional compact PDF (tighter, email-length) — built alongside for comparison
-    if compact:
-        compact_css = print_css + "\n" + (TEMPLATES / "styles_print_compact.css").read_text()
-        compact_doc = template.render(css=compact_css, for_pdf=True, **ctx)
-        compact_out = out_dir / f"newsletter-{issue_dir.name}{suffix}-compact.pdf"
-        WeasyHTML(string=compact_doc, base_url=str(ROOT)).write_pdf(str(compact_out))
-        print(f"  ✓ PDF   → {compact_out.relative_to(ROOT)}  (compact)")
-
     if is_draft:
         print("\n  NOTE: Output is watermarked DRAFT because not all claims are verified.")
     else:
@@ -227,9 +219,8 @@ def build(issue_dir: Path, final: bool, compact: bool = False) -> None:
 def main() -> None:
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     final = "--final" in sys.argv
-    compact = "--compact" in sys.argv
     issue_dir = resolve_issue(args[0] if args else None)
-    build(issue_dir, final, compact)
+    build(issue_dir, final)
 
 
 if __name__ == "__main__":
