@@ -11,6 +11,7 @@ editors:
   - "Mac Walter, MD"
   - "Josh Cheema, MD"
   - "Katie Hufmeyer, MD"
+  - "Aashish Didwania, MD"
 auto_references: false
 disclaimer: >
   Produced by the Department of Medicine Education AI in MedEd Subcommittee for

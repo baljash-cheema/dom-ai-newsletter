@@ -1,65 +1,68 @@
 /* ===========================================================================
    COMPACT PRINT overrides — applied on top of core + print for an
-   email-length (~2-page) PDF. Same content, tighter everything.
+   email-length (~2-page) PDF. Same content, tuned to fill two pages evenly
+   (breathing room, not crammed) rather than crushing everything onto page 1.
    Built only with: ./build.sh <issue> --compact   (suffix: -compact.pdf)
    =========================================================================== */
 @page {
   size: Letter;
-  margin: 10mm 12mm 11mm;
+  margin: 11mm 13mm 11mm;
   @bottom-center { font-size: 6.5pt; }
   @bottom-right  { font-size: 6.5pt; }
 }
 
-body.pdf { font-size: 8.7pt; line-height: 1.34; }
+body.pdf { font-size: 9.1pt; line-height: 1.29; }
 
 /* Masthead */
-.masthead { padding-bottom: 7px; border-bottom-width: 2px; }
-.masthead .logo { height: 40px; }
-.title { font-size: 17pt; }
-.tagline { font-size: 8.5pt; margin-top: 1px; }
-.kicker { font-size: 7pt; }
-.issue-month { font-size: 9pt; }
-.byline { margin-top: 4px; font-size: 8pt; }
+.masthead { padding-bottom: 9px; border-bottom-width: 2px; }
+.masthead .logo { height: 44px; }
+.title { font-size: 18.5pt; }
+.tagline { font-size: 9pt; margin-top: 2px; }
+.kicker { font-size: 7.3pt; }
+.issue-month { font-size: 9.5pt; }
+.byline { margin-top: 5px; font-size: 8.5pt; }
 
 /* Section + sub headers */
-.content h2 { font-size: 10.5pt; margin: 13px 0 7px; padding: 4px 9px; }
-.content h2:first-child { margin-top: 9px; }
-.content h3 { font-size: 10pt; margin: 9px 0 3px; }
-.content h4 { margin: 7px 0 2px; }
-.content p { margin: 0 0 6px; }
-.content ul, .content ol { margin: 0 0 6px; }
-.content li { margin-bottom: 2px; }
+.content h2 { font-size: 11.5pt; margin: 10px 0 6px; padding: 5px 10px; }
+.content h2:first-child { margin-top: 8px; }
+.content h3 { font-size: 10.5pt; margin: 9px 0 4px; }
+.content h4 { margin: 8px 0 3px; }
+.content p { margin: 0 0 7px; }
+.content ul, .content ol { margin: 0 0 7px; }
+.content li { margin-bottom: 3px; }
 
 /* Callout boxes */
-.content .admonition { padding: 7px 11px; margin: 9px 0; }
-.content .admonition.takeaways { padding: 9px 13px; }
-.content .admonition.takeaways li { margin-bottom: 2px; }
-.content .admonition-title { font-size: 8pt; margin-bottom: 2px; }
+.content .admonition { padding: 8px 13px; margin: 8px 0; }
+.content .admonition.takeaways { padding: 11px 15px; }
+.content .admonition.takeaways li { margin-bottom: 3px; }
+.content .admonition-title { font-size: 8.5pt; margin-bottom: 3px; }
 
 /* Stat callout */
-.statcard { padding: 8px 12px; margin: 9px 0; gap: 11px; }
-.statcard .stat-num { font-size: 22pt; }
-.statcard .stat-text { font-size: 8.7pt; }
+.statcard { padding: 10px 14px; margin: 10px 0; gap: 13px; }
+.statcard .stat-num { font-size: 24pt; }
+.statcard .stat-text { font-size: 9.3pt; }
 
 /* Cards */
-.cardrow { margin: 9px -5px; }
-.cardrow .card { margin: 0 5px; padding: 8px 10px; border-top-width: 3px; }
-.cardrow .card h4 { font-size: 9.5pt; margin-bottom: 3px; }
-.cardrow .card p { font-size: 8.3pt; }
-.cardrow .card .card-label { font-size: 6.8pt; }
+.cardrow { margin: 10px -5px; }
+.cardrow .card { margin: 0 5px; padding: 10px 12px; border-top-width: 3px; }
+.cardrow .card h4 { font-size: 10pt; margin-bottom: 4px; }
+.cardrow .card p { font-size: 8.9pt; }
+.cardrow .card .card-label { font-size: 7pt; }
 
 /* Stepper */
-.stepper { margin: 8px -3px 4px; }
-.stepper .step { margin: 0 3px; padding: 5px 3px; }
-.stepper .step .step-letter { font-size: 12pt; }
-.stepper .step .step-label { font-size: 6pt; }
+.stepper { margin: 9px -3px 6px; }
+.stepper .step { margin: 0 3px; padding: 7px 4px; }
+.stepper .step .step-letter { font-size: 13pt; }
+.stepper .step .step-label { font-size: 6.5pt; }
 
 /* Tables */
-.content table { font-size: 8.3pt; margin: 8px 0; }
-.content th, .content td { padding: 3px 6px; }
+.content table { font-size: 9pt; margin: 7px 0; }
+.content th, .content td { padding: 4px 7px; }
 
-/* References + footer */
-.content .footnote { margin-top: 16px; padding-top: 5px; }
-.content .footnote::before { font-size: 10pt; }
-.content .footnote ol { font-size: 7.5pt; }
-.colophon { margin-top: 14px; padding-top: 6px; font-size: 6.8pt; }
+/* References + footer (reference material — set a touch tighter than body) */
+.content .footnote { margin-top: 8px; padding-top: 6px; }
+.content .footnote::before { font-size: 10.5pt; }
+.content .footnote ol { font-size: 7.5pt; line-height: 1.26; }
+.content .footnote li { margin-bottom: 2px; }
+.colophon { margin-top: 5px; padding-top: 5px; font-size: 6.9pt; }
+.colophon .disclaimer { margin-bottom: 3px; }
