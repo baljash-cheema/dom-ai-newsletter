@@ -20,10 +20,10 @@ major academic medical center publishing under its own name.
 plus a clearly-labeled "Editor's Perspective" (opinion, boxed, separate from fact).
 That is the whole issue.
 
-Three sections were cut in July 2026 (Trainee Spotlight, AI Explainer, and
-Evidence, Tools & Pitfalls / "Evidence watch"). They are preserved in the
-`issues/2026-06/` archive and in git history — do not reintroduce them without
-Josh explicitly asking.
+Three sections were cut on 2026-07-22 (Trainee Spotlight, AI Explainer, and
+Evidence, Tools & Pitfalls / "Evidence watch"), including from the unreleased
+inaugural issue. They are preserved in git history — do not reintroduce them
+without Josh explicitly asking.
 
 ## House format — one page, one paper
 There is **one** output format (the "house style" in `templates/styles_print.css`),
@@ -86,9 +86,9 @@ paragraph before or after the component, never inside it.
   (add class `warn` to a card for a red top border). Inside a card use
   `<span class="card-label">…</span><h4>Title</h4><p>…</p>`.
 - `<div class="stepper"> <div class="step"><span class="step-letter">D</span><span class="step-label">Diagnose</span></div> … </div>` → horizontal step badges.
-Working example to copy from: `issues/0000-demo/content.md` (the one-page layout
-demo). `issues/2026-06/` is the last four-section issue — archive only; do not
-copy its structure.
+Working example to copy from: `issues/2026-06/content.md` (the inaugural issue —
+a real one-page issue at the right density) or `issues/0000-demo/content.md` (the
+same shape with sample filler).
 
 ## Anti-hallucination machinery (how it's enforced, not just promised)
 - **`sources.yaml`** per issue: every claim → citation → resolvable id (DOI/PMID/URL)

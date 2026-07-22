@@ -1,4 +1,11 @@
 # Verification ledger for the June 2026 issue.
+#
+# 2026-07-22: the issue was cut to one page / one paper. The two standalone
+# 'Evidence watch' citations (Rotenstein JAMA AI-scribe study; O'Sullivan Nat Med
+# AMIE cardiology RCT) were REMOVED with that section — both were verified and
+# are recorded in git history if a future issue wants them. Entries s7 (centaur/
+# cyborg) and s8 (automation bias) back material also trimmed from this issue;
+# they are kept here as the verification record for the featured article.
 # Every factual claim in content.md (all from the featured article this month)
 # is recorded here with the location in the source that supports it. Verified by
 # reading the full article PDF; the citation itself was confirmed via PubMed
@@ -113,24 +120,3 @@ sources:
     verified: true
     verified_by: "full-text PDF p.791 'AI Engagement Recommendation' + Fig 3, 2026-06-29"
     notes: "p.791: 'With rare exceptions, the educator should encourage ongoing practice with AI... the learner can cautiously engage with the AI tool under indirect or intermittent direct supervision or that the learner can safely use the tool without supervision but with ongoing self-monitoring and education.' Fig 3: 'use AI to inform your reasoning rather than replace it.' We deliberately avoided the sample's overstated 'three choices incl. do-not-use'; framed as 'flag any task where AI shouldn't be relied on,' consistent with 'rare exceptions.'"
-
-  # --- News, Tools & Pitfalls: "In the news" items (independent citations) ---
-  - id: s12
-    claim: "Across 5 US academic health systems (8,581 ambulatory clinicians, 1,809 AI-scribe adopters), AI scribe adoption was associated with ~16 fewer min of documentation and ~13 fewer min of total EHR time per 8 scheduled patient hours, and ~0.5 additional weekly visits, with no significant change in EHR time outside work hours. Observational difference-in-differences (not randomized)."
-    citation: "Rotenstein LS, Holmgren AJ, Thombley R, et al. Changes in Clinician Time Expenditure and Visit Quantity With Adoption of Artificial Intelligence-Powered Scribes: A Multisite Study. JAMA. 2026;335(16):1408-1417."
-    doi: "10.1001/jama.2026.2253"
-    pmid: "41920565"
-    url: "https://doi.org/10.1001/jama.2026.2253"
-    verified: true
-    verified_by: "PubMed metadata + abstract, 2026-06-30"
-    notes: "PMID 41920565 abstract: multisite longitudinal cohort, 5 US academic institutions, 8581 clinicians incl 1809 adopters; difference-in-differences: 13.4 (95% CI 9.1-17.7) fewer min EHR time, 16.0 (95% CI 13.7-18.3) fewer min documentation, 0.49 (95% CI 0.17-0.81) additional weekly visits; EHR time outside work hours NOT significantly changed. Cohort (not RCT) — stated explicitly in our blurb as 'observational, not a randomized trial.'"
-
-  - id: s13
-    claim: "In a randomized controlled trial on complex suspected-cardiomyopathy cases, blinded subspecialists preferred LLM-assisted (AMIE) assessments over cardiologists alone 46.7% vs 32.7% (P=0.02); cardiologists working alone had more clinically significant errors than when AI-assisted (24.3% vs 13.1%, P=0.033). Retrospective patient data; framed as augmentation."
-    citation: "O'Sullivan JW, Palepu A, Saab K, et al. A large language model for complex cardiology care. Nat Med. 2026;32(2):616-623."
-    doi: "10.1038/s41591-025-04190-9"
-    pmid: "41652123"
-    url: "https://doi.org/10.1038/s41591-025-04190-9"
-    verified: true
-    verified_by: "PubMed metadata + abstract, 2026-06-30"
-    notes: "PMID 41652123 abstract: RCT with retrospective complex genetic-cardiomyopathy cases, 9 general cardiologists, AMIE LLM assist evaluated by 3 blinded subspecialists. Subspecialists preferred AMIE-assisted 46.7% vs 32.7% alone (P=0.02), 20.6% tie. Cardiologists alone had more clinically significant errors (24.3% vs 13.1%, P=0.033) and more missing content (37.4% vs 17.8%, P=0.0021). Augmentation framing matches our blurb."
