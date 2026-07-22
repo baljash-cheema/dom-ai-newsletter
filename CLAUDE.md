@@ -2,31 +2,40 @@
 
 ## What this project is
 A reproducible monthly newsletter for **all faculty** in the Department of
-Medicine, produced by a subcommittee of the Education Committee. Purpose:
-showcase what trainees are already doing with AI, upskill faculty, and teach
-AI in clinical medicine / medical education. Audience is faculty physicians;
-tone is credible, plain-language, and academically defensible.
+Medicine, produced by a subcommittee of the Education Committee. Purpose: put
+**one** worthwhile paper on AI in clinical medicine / medical education in front
+of busy faculty each month, summarized plainly and verified. Audience is faculty
+physicians; tone is credible, plain-language, and academically defensible.
+
+**It is deliberately small: one page, one paper.** The value is that a faculty
+member reads all of it in two minutes. Resist scope creep — no news roundup, no
+tool tips, no trainee profiles, no second paper.
 
 **Non-negotiable: every factual claim is verified against a real source before
 publication. No hallucinated facts, statistics, or citations — ever.** This is a
 major academic medical center publishing under its own name.
 
-## The four standing sections (every issue)
-1. **Article of the Month** — plain-language summary of one paper Josh supplies,
-   plus a clearly-labeled "Editor's Perspective" (opinion, boxed, separate from fact).
-2. **Trainee Spotlight** — what a resident/fellow is doing with AI (Josh supplies;
-   published only with permission; no PHI).
-3. **AI Explainer** — one concept taught for busy faculty.
-4. **Evidence, Tools & Pitfalls** — a verified roundup of recent research
-   ("Evidence watch") + tool tip + a safety/ethics caution.
+## The one standing section (every issue)
+**Article of the Month** — a plain-language summary of one paper Josh supplies,
+plus a clearly-labeled "Editor's Perspective" (opinion, boxed, separate from fact).
+That is the whole issue.
 
-## House format — one look, flexible length
+Three sections were cut in July 2026 (Trainee Spotlight, AI Explainer, and
+Evidence, Tools & Pitfalls / "Evidence watch"). They are preserved in the
+`issues/2026-06/` archive and in git history — do not reintroduce them without
+Josh explicitly asking.
+
+## House format — one page, one paper
 There is **one** output format (the "house style" in `templates/styles_print.css`),
-tuned so pages fill evenly instead of crowding the top and trailing off empty.
-**Length flexes with content:** two pages is typical, but a longer issue running to
-three or more pages is fine — nothing forces a fixed page count. Do not add a
-separate "compact"/"full" build; if the spacing ever needs a nudge, adjust the
-house scale in `styles_print.css` (it changes every issue, which is the point).
+tuned so a single article fills one US Letter page evenly instead of crowding the
+top and trailing off empty. **The page count is fixed at one.** If an issue
+overflows, *cut the copy* — do not shrink the house scale for one issue, and do
+not add a separate "compact" build. If the scale genuinely needs a nudge it is
+changed once in `styles_print.css`, for every issue.
+
+Rough budget for a page: the takeaways box (3 bullets), a citation line, 2–3 short
+paragraphs, **about two** visual components, the Editor's Perspective box, and the
+footnotes.
 
 **What stays identical every issue (so it all reads as the same publication):**
 - **Masthead** — title "AI in Medical Education", department line, tagline, `Vol · No`, month.
@@ -34,18 +43,18 @@ house scale in `styles_print.css` (it changes every issue, which is the point).
   Josh Cheema, Katie Hufmeyer, Aashish Didwania). Same names, same order, every issue;
   update the roster in `issue_template/content.md` if membership changes.
 - **"This issue at a glance"** takeaways box at the very top.
-- **The four standing section headers** (above), same names and order.
+- **The "Article of the Month" section header** — same name every issue.
 - **Colophon/disclaimer** at the foot (institutional voice, PHI/endorsement caveats).
 - **The visual components** (below) — reuse these shapes; don't invent new ones per issue.
 
 The masthead, byline, and colophon are rendered from front-matter + `base.html.j2`, so
 keeping the template front-matter constant keeps them constant. Per-issue writing lives
-only *inside* the four sections.
+only *inside* the Article of the Month section.
 
 ## Sourcing model
-Mix: **Josh supplies** the core article + trainee content; **Claude researches**
-the news/tools/explainer sections (PubMed + web tools). Everything Claude adds is
-source-verified before it ships.
+**Josh supplies the paper.** Claude writes the plain-language summary and drafts
+the Editor's Perspective, reading the actual source (PubMed + web tools) — never a
+remembered version of it. Everything Claude writes is source-verified before it ships.
 
 ## How to produce an issue
 ```bash
@@ -62,7 +71,12 @@ self-contained/email-ready; PDF is print-quality US Letter).
 ## Visual components (the newsletter is visual-first / low-text)
 Defined in `templates/styles_core.css` (and print rules in `styles_print.css`).
 Keep prose short and let these carry meaning. Markdown-inside-HTML is enabled
-(`md_in_html`) so cards can hold simple markup.
+(`md_in_html`) so cards can hold simple markup. **On a one-page issue, use about
+two of these** — more and the page overflows.
+
+⚠️ **Footnote markers (`[^1]`) do not render inside raw HTML blocks** (`statcard`,
+`cardrow`, `stepper`) — they print literally as `[^1]`. Put the footnote on the
+paragraph before or after the component, never inside it.
 - `!!! takeaways "This issue at a glance"` → purple scan box; keep at the top of every issue.
 - `!!! action "Try this on rounds"` → green "do this" box (sample scripts/dialogue).
 - `!!! note "Editor's Perspective — from the subcommittee"` → opinion box (institutional voice).
@@ -72,7 +86,9 @@ Keep prose short and let these carry meaning. Markdown-inside-HTML is enabled
   (add class `warn` to a card for a red top border). Inside a card use
   `<span class="card-label">…</span><h4>Title</h4><p>…</p>`.
 - `<div class="stepper"> <div class="step"><span class="step-letter">D</span><span class="step-label">Diagnose</span></div> … </div>` → horizontal step badges.
-Working example to copy from: `issues/2026-06/content.md`.
+Working example to copy from: `issues/0000-demo/content.md` (the one-page layout
+demo). `issues/2026-06/` is the last four-section issue — archive only; do not
+copy its structure.
 
 ## Anti-hallucination machinery (how it's enforced, not just promised)
 - **`sources.yaml`** per issue: every claim → citation → resolvable id (DOI/PMID/URL)

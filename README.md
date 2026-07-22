@@ -24,8 +24,9 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 Outputs land in `issues/2026-07/output/`.
 
 ## What's in each issue
-**Article of the Month** · **Trainee Spotlight** · **AI Explainer** ·
-**Evidence, Tools & Pitfalls**
+**One page, one paper.** A single **Article of the Month** — a plain-language,
+source-verified summary of one study, plus a boxed **Editor's Perspective** that
+keeps opinion visibly separate from evidence. Nothing else.
 
 ## How accuracy is guaranteed
 Every claim is recorded in the issue's `sources.yaml` with a resolvable

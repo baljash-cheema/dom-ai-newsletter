@@ -1,10 +1,12 @@
 /* ===========================================================================
    PRINT / PDF — the HOUSE STYLE for the newsletter (WeasyPrint, US Letter).
 
-   This is THE standard format for every issue. It is tuned for even,
-   comfortable spacing that fills the page rather than crowding the top and
-   trailing off empty. Length flexes with content: two pages is typical, but
-   more is fine — nothing here forces a fixed page count.
+   This is THE standard format for every issue: ONE PAGE, ONE PAPER. The scale
+   below is tuned so a single Article of the Month fills a US Letter page evenly
+   rather than crowding the top and trailing off empty.
+
+   If an issue overflows to a second page, CUT THE COPY — do not shrink this
+   scale for one issue. A change here changes every issue, which is the point.
 
    Keep this style stable so every issue reads as the same publication.
    Applied on top of styles_core.css.
@@ -26,7 +28,7 @@
   }
 }
 
-body.pdf { font-size: 9.1pt; line-height: 1.29; }
+body.pdf { font-size: 10.4pt; line-height: 1.42; }
 body.pdf .page { padding: 0; }
 
 /* --- Page-break discipline ------------------------------------------------ */
@@ -55,33 +57,33 @@ body.pdf .page { padding: 0; }
    =========================================================================== */
 
 /* Masthead */
-.masthead { padding-bottom: 9px; border-bottom-width: 2px; }
-.masthead .logo { height: 44px; }
-.title { font-size: 18.5pt; }
-.tagline { font-size: 9pt; margin-top: 2px; }
-.kicker { font-size: 7.3pt; }
-.issue-month { font-size: 9.5pt; }
-.byline { margin-top: 5px; font-size: 8.5pt; }
+.masthead { padding-bottom: 12px; border-bottom-width: 2px; }
+.masthead .logo { height: 50px; }
+.title { font-size: 21pt; }
+.tagline { font-size: 10pt; margin-top: 3px; }
+.kicker { font-size: 8pt; }
+.issue-month { font-size: 10.5pt; }
+.byline { margin-top: 7px; font-size: 9.3pt; }
 
 /* Section + sub headers */
-.content h2 { font-size: 11.5pt; margin: 10px 0 6px; padding: 5px 10px; }
-.content h2:first-child { margin-top: 8px; }
-.content h3 { font-size: 10.5pt; margin: 9px 0 4px; }
+.content h2 { font-size: 13pt; margin: 16px 0 9px; padding: 7px 12px; }
+.content h2:first-child { margin-top: 12px; }
+.content h3 { font-size: 11.5pt; margin: 12px 0 5px; }
 .content h4 { margin: 8px 0 3px; }
-.content p { margin: 0 0 7px; }
-.content ul, .content ol { margin: 0 0 7px; }
-.content li { margin-bottom: 3px; }
+.content p { margin: 0 0 10px; }
+.content ul, .content ol { margin: 0 0 10px; }
+.content li { margin-bottom: 5px; }
 
 /* Callout boxes */
-.content .admonition { padding: 8px 13px; margin: 8px 0; }
-.content .admonition.takeaways { padding: 11px 15px; }
-.content .admonition.takeaways li { margin-bottom: 3px; }
-.content .admonition-title { font-size: 8.5pt; margin-bottom: 3px; }
+.content .admonition { padding: 11px 15px; margin: 13px 0; }
+.content .admonition.takeaways { padding: 14px 18px; }
+.content .admonition.takeaways li { margin-bottom: 5px; }
+.content .admonition-title { font-size: 9.5pt; margin-bottom: 5px; }
 
 /* Stat callout */
-.statcard { padding: 10px 14px; margin: 10px 0; gap: 13px; }
-.statcard .stat-num { font-size: 24pt; }
-.statcard .stat-text { font-size: 9.3pt; }
+.statcard { padding: 14px 18px; margin: 14px 0; gap: 16px; }
+.statcard .stat-num { font-size: 27pt; }
+.statcard .stat-text { font-size: 10.4pt; }
 
 /* Cards */
 .cardrow { margin: 10px -5px; }
@@ -101,9 +103,9 @@ body.pdf .page { padding: 0; }
 .content th, .content td { padding: 4px 7px; }
 
 /* References + footer (reference material — set a touch tighter than body) */
-.content .footnote { margin-top: 8px; padding-top: 6px; }
+.content .footnote { margin-top: 14px; padding-top: 9px; }
 .content .footnote::before { font-size: 10.5pt; }
-.content .footnote ol { font-size: 7.5pt; line-height: 1.26; }
+.content .footnote ol { font-size: 8.2pt; line-height: 1.32; }
 .content .footnote li { margin-bottom: 2px; }
-.colophon { margin-top: 5px; padding-top: 5px; font-size: 6.9pt; }
+.colophon { margin-top: 10px; padding-top: 7px; font-size: 7.4pt; }
 .colophon .disclaimer { margin-bottom: 3px; }
