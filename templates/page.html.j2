@@ -1,6 +1,11 @@
-{#- One printed page of the newsletter (masthead band + content + footer band).
-    Context: `page` = {meta, body, index, show_colophon}; plus globals
-    `logo, verified, total, build_date`. -#}
+{#- One printed page of the newsletter. An "image" page is a committee export
+    (e.g. Canva page 1) shown verbatim; a "markdown" page is rendered through the
+    masthead/content/footer template. Globals: logo, verified, total, build_date. -#}
+{%- if page.kind == "image" -%}
+<div class="page page--image page--{{ page.index + 1 }}">
+  <img class="page-image" src="{{ page.image }}" alt="Newsletter page {{ page.index + 1 }}">
+</div>
+{%- else -%}
 {%- set meta = page.meta -%}
 <div class="page page--{{ page.index + 1 }}">
 
@@ -58,3 +63,4 @@
   </footer>
 
 </div>
+{%- endif -%}

@@ -7,8 +7,21 @@ __pycache__/
 .DS_Store
 
 # Generated newsletter outputs — rebuild from source with ./build.sh
-# (we keep source content.md + sources.yaml in git; outputs are reproducible)
+# (we keep source page*.md + sources.yaml in git; outputs are reproducible)
 issues/**/output/
+
+# Per-issue page ARTWORK (e.g. a committee's Canva page-1 export). Kept out of
+# git by default so the public/open-source repo stays a generic template rather
+# than a host for a specific institution's finished newsletter. Drop the image
+# in locally to build the real page 1; make the repo private (or force-add) if
+# you want the artwork versioned with the collaborator. The build falls back to
+# page1.md when no image is present.
+issues/**/page1.jpg
+issues/**/page1.jpeg
+issues/**/page1.png
+issues/**/page2.jpg
+issues/**/page2.jpeg
+issues/**/page2.png
 
 # Per global policy: never commit raw data, drafts containing unreleased
 # trainee info you haven't cleared, credentials, or anything with PHI/PII.

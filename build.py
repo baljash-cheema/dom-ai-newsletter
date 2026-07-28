@@ -86,9 +86,12 @@ MD_EXTENSIONS = [
     "admonition",
 ]
 
-# The page files a full issue is built from, in printed order. Each may carry
-# its own front matter (title, etc.) layered on top of issue.yaml.
-PAGE_FILES = ["page1.md", "page2.md"]
+# The page slots a full issue is built from, in printed order. Each slot is
+# either an image export (page1.jpg/.jpeg/.png — used verbatim, 100% fidelity)
+# or a Markdown file (page1.md) rendered through the templates. An image, if
+# present, wins — that is how a committee's own Canva page 1 becomes page 1.
+PAGE_SLOTS = ["page1", "page2"]
+IMAGE_EXTS = (".jpg", ".jpeg", ".png")
 
 
 # --------------------------------------------------------------------------- #
@@ -148,6 +151,24 @@ def font_faces_css() -> str:
     return "\n".join(rules) + ("\n" if rules else "")
 
 
+def image_size(path: Path) -> tuple[int, int] | None:
+    """Return (width, height) in px for a PNG/JPEG — no third-party dependency."""
+    d = path.read_bytes()
+    if d[:8] == b"\x89PNG\r\n\x1a\n":
+        return int.from_bytes(d[16:20], "big"), int.from_bytes(d[20:24], "big")
+    if d[:2] == b"\xff\xd8":  # JPEG: scan for a Start-Of-Frame marker
+        i = 2
+        while i < len(d) - 9:
+            if d[i] != 0xFF:
+                i += 1
+                continue
+            m = d[i + 1]
+            if m in (0xC0, 0xC1, 0xC2, 0xC3, 0xC5, 0xC6, 0xC7, 0xC9, 0xCA, 0xCB, 0xCD, 0xCE, 0xCF):
+                return int.from_bytes(d[i + 7:i + 9], "big"), int.from_bytes(d[i + 5:i + 7], "big")
+            i += 2 + int.from_bytes(d[i + 2:i + 4], "big")
+    return None
+
+
 def load_yaml(path: Path) -> dict:
     if not path.exists():
         return {}
@@ -163,25 +184,32 @@ def render_body(text: str) -> str:
 
 
 def load_pages(issue_dir: Path, shared: dict) -> list[dict]:
-    """Load each page file, layering issue.yaml under its own front matter."""
+    """Resolve each page slot to an image export or a Markdown file (image wins)."""
+    slots: list[tuple[str, str, Path]] = []
+    for base in PAGE_SLOTS:
+        img = next((issue_dir / (base + e) for e in IMAGE_EXTS if (issue_dir / (base + e)).exists()), None)
+        md = issue_dir / (base + ".md")
+        if img is not None:
+            slots.append((base, "image", img))
+        elif md.exists():
+            slots.append((base, "markdown", md))
+    if not slots and (issue_dir / "content.md").exists():
+        slots.append(("page2", "markdown", issue_dir / "content.md"))   # single-page fallback
+    if not slots:
+        fail(f"No page files (page1.* / page2.* / content.md) in {issue_dir}")
+
     pages: list[dict] = []
-    page_paths = [issue_dir / f for f in PAGE_FILES if (issue_dir / f).exists()]
-    if not page_paths and (issue_dir / "content.md").exists():
-        page_paths = [issue_dir / "content.md"]   # single-page fallback
-
-    if not page_paths:
-        fail(f"No page files (page1.md / page2.md / content.md) in {issue_dir}")
-
-    for i, path in enumerate(page_paths):
-        post = frontmatter.load(path)
-        meta = {**shared, **post.metadata}         # page front matter wins
-        pages.append({
-            "meta": meta,
-            "body": render_body(post.content),
-            "index": i,
-            # page 2 (the AI page) carries the sourcing colophon; page 1 does not
-            "show_colophon": path.name in ("page2.md", "content.md"),
-        })
+    for i, (base, kind, path) in enumerate(slots):
+        if kind == "image":
+            w, h = image_size(path) or (850, 1100)
+            pages.append({"kind": "image", "index": i, "meta": shared,
+                          "image": data_uri(path), "aspect": w / h, "show_colophon": False})
+        else:
+            post = frontmatter.load(path)
+            pages.append({"kind": "markdown", "index": i, "meta": {**shared, **post.metadata},
+                          "body": render_body(post.content),
+                          # the AI page (page 2) carries the sourcing colophon; page 1 does not
+                          "show_colophon": base == "page2" or path.name == "content.md"})
     return pages
 
 
@@ -230,6 +258,17 @@ def build(issue_dir: Path, final: bool) -> None:
     core_css = fonts_css + (TEMPLATES / "styles_core.css").read_text()
     screen_css = core_css + "\n" + (TEMPLATES / "styles_screen.css").read_text()
     print_css = core_css + "\n" + (TEMPLATES / "styles_print.css").read_text()
+
+    # Give each image page its own PDF page sized to the export's aspect (letter
+    # width, proportional height) so the artwork is full-bleed with no bars.
+    page_rules = []
+    for p in pages:
+        if p["kind"] == "image":
+            n = p["index"] + 1
+            page_rules.append(f"@page pimg{n} {{ size: 8.5in {8.5 / p['aspect']:.3f}in; margin: 0; }}")
+            page_rules.append(f".page--image.page--{n} {{ page: pimg{n}; }}")
+    if page_rules:
+        print_css += "\n" + "\n".join(page_rules) + "\n"
 
     ctx = {
         "pages": pages,
