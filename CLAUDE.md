@@ -26,9 +26,7 @@ This is a major academic medical center publishing under its own name.
 ```
 issues/<YYYY-MM>/
   issue.yaml    # shared masthead metadata: month, volume, editors, disclaimer
-  page1.md      # committee content (front matter: title)   ── OR ──
-  page1.jpg     # a committee Canva export used verbatim as page 1 (image wins;
-                #   gitignored by default — see "Page 1" below)
+  page1.md      # committee content (front matter: title)
   page2.md      # AI Article of the Month (front matter: title)
   sources.yaml  # verification ledger for PAGE 2's claims
   output/       # generated PDF + HTML (gitignored)
@@ -64,23 +62,9 @@ without Josh explicitly asking.
 the Editor's Perspective by reading the actual source (PubMed + web tools) —
 never a remembered version. Everything is source-verified before it ships.
 
-## Page 1 — DOM Education Committee
-**Two ways to build page 1**, and the image wins if present:
-1. **`page1.jpg`/`.png`** — the committee's own Canva export, used verbatim.
-   `build.py` gives that page its own PDF page sized to the image's exact aspect
-   (letter width × proportional height), so it is 100% the original, full-bleed.
-   This is the preferred path — a code redraw can't match a Canva design pixel
-   for pixel. **These images are gitignored by default** (institutional artwork
-   shouldn't land in the public/open-source repo); drop one in locally, or make
-   the repo private / force-add it to version it with a collaborator.
-2. **`page1.md`** — the fallback code-native layout (below), used when no image
-   is present. Keep it reasonable so a fresh clone still builds a real page 1.
-
-Note: a Canva export is often 2:3, taller than US Letter — so page 1 and page 2
-end up different heights in the combined PDF. For a uniform document, export
-page 1 from Canva at US Letter (8.5×11).
-
-The code-native fallback's standing structure: **Welcome**, a "Who we are" committee note
+## Page 1 — DOM Education Committee (clean, brand-matched)
+A code-native layout in the same brand (chosen 2026-07-28 over a pixel-faithful
+Canva recreation). Standing structure: **Welcome**, a "Who we are" committee note
 (the Committee's mix of PCs/PDs/DAs + a roster link), the year's **topic grid**
 (inaugural issue), the **In Every Issue** cards (Upcoming Events, Policies &
 Updates, Resources, Highlights), and a **feedback + QR** block.

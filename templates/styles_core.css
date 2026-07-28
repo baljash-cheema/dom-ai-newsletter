@@ -468,11 +468,6 @@ code { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.9em; bac
 }
 
 /* ===========================================================================
-   Full-page image (a committee export shown verbatim as a page)
-   =========================================================================== */
-.page-image { display: block; width: 100%; height: auto; }
-
-/* ===========================================================================
    Draft watermark
    =========================================================================== */
 .draft-banner {

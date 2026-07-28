@@ -6,9 +6,8 @@ identically-formatted **two-page** document — **PDF** (print) and **HTML**
 (email) — with a built-in verification gate so nothing ships unless every
 factual claim on the AI page is confirmed against a real source.
 
-**Page 1** — DOM Education Committee content. Either a **committee Canva export**
-(`page1.jpg`, used verbatim) or a code-native layout (`page1.md`) — the image
-wins if present.
+**Page 1** — DOM Education Committee content (welcome, topics, events, policies,
+resources, highlights, feedback).
 **Page 2** — *AI in Medical Education*: one plain-language, source-verified
 Article of the Month plus a boxed Editor's Perspective.
 
