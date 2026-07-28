@@ -360,51 +360,79 @@ code { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.9em; bac
 /* Obvious placeholder markers for details to be filled in later */
 .ph { color: var(--warn); font-weight: 700; font-size: 0.85em; font-style: italic; }
 
-/* --- Welcome hero (script wordmark) ------------------------------------- */
+/* --- Two-column hero: welcome (left) + topics panel (right) -------------- */
+.hero { display: table; width: 100%; table-layout: fixed; margin-top: 2px; }
+.hero-left  { display: table-cell; width: 45%; vertical-align: top; padding-right: 18px; }
+.hero-right { display: table-cell; width: 55%; vertical-align: top; }
+
 .welcome-script {
   font-family: var(--script); font-weight: 400;
-  font-size: 48pt; line-height: 0.8; color: var(--brand); margin: 4px 0 0;
+  font-size: 46pt; line-height: 0.78; color: var(--brand); margin: 0;
 }
 .welcome-kicker {
   font-family: var(--display); font-weight: 700; font-size: 12.5pt;
-  letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-soft); margin: 2px 0 8px;
+  letter-spacing: 0.04em; text-transform: uppercase; color: var(--brand); margin: 2px 0 8px;
 }
+.hero-left p { font-size: 9.5pt; margin: 0 0 7px; }
+
+/* AI callout (points readers to page 2) */
+.ai-callout {
+  display: table; width: 100%; background: #f0e9fb; border: 1px solid #e2d6f4;
+  border-radius: 10px; margin: 9px 0;
+}
+.ai-callout-badge { display: table-cell; width: 44px; vertical-align: middle; text-align: center; padding-left: 8px; }
+.ai-callout-badge span {
+  display: inline-block; width: 34px; height: 34px; line-height: 34px; text-align: center;
+  border-radius: 50%; background: var(--brand);
+}
+.ai-callout-badge svg { width: 19px; height: 19px; vertical-align: middle; stroke: #fff; }
+.ai-callout-text { display: table-cell; vertical-align: middle; padding: 9px 13px 9px 10px; font-size: 8.6pt; color: var(--ink); }
+.ai-callout-text strong { color: var(--brand); }
 
 /* Who-we-are note + script signature */
 .committee-note {
   background: var(--bg-soft); border: 1px solid var(--card-bd);
-  border-radius: 10px; padding: 11px 15px; margin: 10px 0; font-size: 10pt; color: var(--ink);
+  border-radius: 10px; padding: 9px 13px; margin: 9px 0; font-size: 8.8pt; color: var(--ink);
 }
 .committee-note .cn-label {
-  font-family: var(--sans); font-weight: 800; font-size: 7.5pt;
+  font-family: var(--sans); font-weight: 800; font-size: 7pt;
   letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand);
 }
 .committee-note a { color: var(--brand-2); }
 .signature {
-  margin: 10px 0 0; font-family: var(--script2); font-weight: 600;
-  font-size: 20pt; line-height: 1; color: var(--brand);
+  margin: 9px 0 0; font-family: var(--script2); font-weight: 600;
+  font-size: 19pt; line-height: 1; color: var(--brand);
 }
 .signature span {
   display: block; font-family: var(--sans); font-weight: 600;
-  font-size: 8.5pt; color: var(--ink-soft); margin-top: 3px;
+  font-size: 8pt; color: var(--ink-soft); margin-top: 2px;
 }
 
-/* --- Topic grid: colored icon + label, rotating accent ------------------- */
+/* Chicago skyline flourish under the welcome column */
+.skyline { margin-top: 10px; }
+.skyline svg { display: block; width: 100%; height: auto; fill: #cdbdec; }
+
+/* --- Topics panel: bordered card with a 3-col icon grid ----------------- */
 .topics-panel {
-  background: var(--bg-soft); border: 1px solid var(--card-bd);
-  border-radius: 12px; padding: 13px 15px; margin: 6px 0;
+  background: #fff; border: 1.5px solid var(--card-bd);
+  border-radius: 14px; padding: 11px 12px 13px;
 }
-.topic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; }
+.topics-title {
+  text-align: center; font-family: var(--display); font-weight: 700;
+  font-size: 12.5pt; letter-spacing: 0.03em; text-transform: uppercase;
+  color: var(--brand); line-height: 1.05; margin-bottom: 10px;
+}
+.topic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
 .topic {
-  display: table; width: 100%; color: var(--brand);   /* color = accent */
-  background: #fff; border: 1px solid var(--card-bd); border-left: 3px solid currentColor;
-  border-radius: 9px; padding: 8px 11px; box-shadow: var(--shadow);
+  text-align: center; color: var(--brand);   /* color = accent (icon) */
+  background: var(--bg-soft); border: 1px solid var(--card-bd);
+  border-radius: 9px; padding: 8px 4px 7px;
 }
-.topic-ic { display: table-cell; width: 24px; vertical-align: middle; }
-.topic-ic svg { width: 22px; height: 22px; }
+.topic-ic { display: block; height: 26px; }
+.topic-ic svg { width: 26px; height: 26px; }
 .topic-label {
-  display: table-cell; vertical-align: middle; padding-left: 11px;
-  font-size: 9pt; font-weight: 600; color: var(--ink);
+  display: block; margin-top: 5px; font-size: 7.4pt; font-weight: 600;
+  line-height: 1.12; color: var(--ink);
 }
 .topic:nth-child(6n+1) { color: var(--brand);   }
 .topic:nth-child(6n+2) { color: var(--blue);    }

@@ -62,12 +62,22 @@ without Josh explicitly asking.
 the Editor's Perspective by reading the actual source (PubMed + web tools) —
 never a remembered version. Everything is source-verified before it ships.
 
-## Page 1 — DOM Education Committee (clean, brand-matched)
-A code-native layout in the same brand (chosen 2026-07-28 over a pixel-faithful
-Canva recreation). Standing structure: **Welcome**, a "Who we are" committee note
-(the Committee's mix of PCs/PDs/DAs + a roster link), the year's **topic grid**
-(inaugural issue), the **In Every Issue** cards (Upcoming Events, Policies &
-Updates, Resources, Highlights), and a **feedback + QR** block.
+## Page 1 — DOM Education Committee (code-native, reproducible)
+Page 1 is **generated from `page1.md`**, not a static image — reproducibility is
+the whole point of the project, so we do NOT drop in a Canva JPEG (rejected
+2026-07-28: a static export can't be regenerated or edited from source). The
+layout mirrors the committee's Canva original: a **two-column hero** (`.hero` /
+`.hero-left` + `.hero-right`, a `display:table`) with the script **Welcome** and
+the `.ai-callout` on the left and the bordered **`.topics-panel`** on the right,
+then a full-width **In Every Issue** card row and a **`.feedback`** block. Icons
+are from **Lucide** (ISC) — inline SVGs, `stroke="currentColor"`, so each tile's
+rotating accent colors the icon. Standing structure: Welcome, "Who we are"
+committee note (PCs/PDs/DAs + roster link), the **topics grid** (inaugural), the
+four **In Every Issue** cards, and **feedback + QR**.
+
+WeasyPrint note: it resolves SVG `currentColor` for **stroke** (from the inherited
+`color`) but **not for `fill`** — hardcode `fill="#…"` in a decorative SVG (see
+`.skyline`), or set the CSS `stroke` directly for a fixed-color icon.
 
 Page-1 details Josh still owes are marked `[PLACEHOLDER: …]` and render in red so
 they're impossible to miss: committee roster link, his signature, his email, the

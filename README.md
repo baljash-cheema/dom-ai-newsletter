@@ -56,5 +56,6 @@ This newsletter and its build pipeline were created with
 [Claude Code](https://claude.com/claude-code). The code is open-source under the
 [MIT License](LICENSE) — free for anyone to use, adapt, or run for their own
 newsletter. The bundled script fonts (`assets/fonts/`, Great Vibes & Dancing
-Script) keep their own [SIL Open Font License 1.1](assets/fonts/OFL.txt).
+Script) keep their own [SIL Open Font License 1.1](assets/fonts/OFL.txt), and the
+page-1 icons are from [Lucide](https://lucide.dev) (ISC License).
 Questions or want a hand adapting it? Open an issue or reach out.
