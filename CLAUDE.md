@@ -108,9 +108,13 @@ Page 2 (use about **two** per issue — the page is small):
 - `<div class="cardrow"><div class="card">…</div>…</div>` → 2–3 side-by-side cards.
 - `<span class="landmark-tag">…</span>` + `<a class="read-link" href="…">Read the full article</a>` in a `<div class="article-meta">` → the citation-header row.
 
-Page 1: `.committee-note`, `.signature`, `.topic-grid` / `.topic` (numbered
-tiles), `.feature-cards` / `.fcard` (the four standing cards), `.feedback` +
-`.qr-box`. Copy shapes from `issues/2026-06/page1.md`.
+Page 1: `.welcome-script` (Great Vibes wordmark), `.committee-note`, `.signature`
+(Dancing Script), `.topics-panel` + `.topic` tiles, `.feature-cards` / `.fcard`
+with `.fcard-badge` (circular icon) + `.fcard-foot` (colored pill), and
+`.feedback` + `.feedback-icon` + `.qr-box`. **Icons are inline SVGs** with
+`stroke="currentColor"`, so a tile/card's `color` drives icon + accent stripe +
+heading together; the topic tiles rotate through six brand colors via
+`:nth-child`. Copy shapes from `issues/2026-06/page1.md`.
 
 ## Anti-hallucination machinery (page 2)
 - **`sources.yaml`** per issue: every claim → citation → resolvable id
@@ -137,6 +141,9 @@ When acting as the editorial sub-agent:
   `display:table`** for side-by-side lockups/badges (see `.nm-mark`, `.topic`),
   and normal block flow for the full-bleed bands. The logo, topic badges, and
   section headers were all reworked to avoid these.
+- **Script fonts** (`assets/fonts/*.woff2` — Great Vibes + Dancing Script, OFL;
+  see `assets/fonts/README.md`) are subset to woff2 and inlined into the CSS by
+  `build.py`. `Brotli` (pinned in requirements) lets WeasyPrint decode woff2.
 - Optional `assets/logo.png` (reversed-white) replaces the built-in CSS lockup.
 - Generated outputs are gitignored — reproducible from source.
 

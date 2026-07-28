@@ -47,7 +47,7 @@ the tooling, not by trust.
 | `templates/` | HTML layout (`base` + `page`) + CSS (core / screen / print) |
 | `workflow/editorial-review.md` | the page-2 verification process |
 | `issues/<YYYY-MM>/` | one folder per issue — see `issues/2026-06/` for a full worked example |
-| `assets/` | optional `logo.png` (reversed-white) drops into the purple masthead band |
+| `assets/` | embedded script fonts (`fonts/`, OFL) + optional `logo.png` (reversed-white) for the masthead band |
 | `CLAUDE.md` | full context for AI-assisted sessions |
 
 ## Built with, and licensed
@@ -55,4 +55,6 @@ the tooling, not by trust.
 This newsletter and its build pipeline were created with
 [Claude Code](https://claude.com/claude-code). The code is open-source under the
 [MIT License](LICENSE) — free for anyone to use, adapt, or run for their own
-newsletter. Questions or want a hand adapting it? Open an issue or reach out.
+newsletter. The bundled script fonts (`assets/fonts/`, Great Vibes & Dancing
+Script) keep their own [SIL Open Font License 1.1](assets/fonts/OFL.txt).
+Questions or want a hand adapting it? Open an issue or reach out.
