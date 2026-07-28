@@ -1,0 +1,60 @@
+{#- One printed page of the newsletter (masthead band + content + footer band).
+    Context: `page` = {meta, body, index, show_colophon}; plus globals
+    `logo, verified, total, build_date`. -#}
+{%- set meta = page.meta -%}
+<div class="page page--{{ page.index + 1 }}">
+
+  <header class="masthead">
+    <div class="mast-brand">
+      {% if logo %}
+        <img class="nm-logo" src="{{ logo }}" alt="Northwestern Medicine">
+      {% else %}
+        <div class="nm-lockup">
+          <span class="nm-mark">N</span>
+          <span class="nm-word">Northwestern<br><strong>Medicine</strong><sup>&reg;</sup></span>
+        </div>
+      {% endif %}
+      <div class="mast-dept">Department of Medicine</div>
+    </div>
+
+    <div class="mast-title">
+      <h1>{{ meta.get('title', 'DOM Education Newsletter') }}</h1>
+      <div class="mast-sub">
+        {%- set bits = [] -%}
+        {%- if meta.get('issue_label') %}{% set _ = bits.append(meta.issue_label) %}{% endif -%}
+        {%- if meta.get('volume') %}{% set _ = bits.append('Vol. ' ~ meta.volume ~ (' · No. ' ~ meta.issue_number if meta.get('issue_number') else '')) %}{% endif -%}
+        {%- if meta.get('month_year') %}{% set _ = bits.append(meta.month_year) %}{% endif -%}
+        {{ bits | join('  ·  ') }}
+      </div>
+    </div>
+
+    <div class="mast-emblem" aria-hidden="true">
+      <svg viewBox="0 0 52 52" width="52" height="52">
+        <circle cx="26" cy="26" r="24" fill="none" stroke="#ffffff" stroke-width="2"/>
+        <path d="M26 17 C21 13.5 15 13.5 11.5 15.5 L11.5 35 C15 33 21 33 26 36.5 C31 33 37 33 40.5 35 L40.5 15.5 C37 13.5 31 13.5 26 17 Z"
+              fill="none" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"/>
+        <line x1="26" y1="17" x2="26" y2="36.5" stroke="#ffffff" stroke-width="2"/>
+      </svg>
+    </div>
+  </header>
+
+  <main class="content">
+    {{ page.body }}
+  </main>
+
+  {% if page.show_colophon %}
+  <div class="colophon">
+    {% if meta.get('editors') %}
+    <p class="editors">Edited by the DOM Education AI in MedEd Subcommittee: {{ meta.editors | join(', ') if meta.editors is iterable and meta.editors is not string else meta.editors }}.</p>
+    {% endif %}
+    <p class="disclaimer">{{ meta.get('disclaimer', 'This newsletter is for educational purposes within the Department of Medicine. Clinical AI tools described here are not endorsements; verify suitability and institutional approval before any clinical use. No protected health information appears in this publication.') }}</p>
+    <p class="build-note">Built {{ build_date }} · {{ verified }}/{{ total }} sources verified · open-source (MIT): <a href="https://github.com/baljash-cheema/dom-ai-newsletter">github.com/baljash-cheema/dom-ai-newsletter</a></p>
+  </div>
+  {% endif %}
+
+  <footer class="mast-footer">
+    <div class="foot-words">CONNECT&nbsp;&nbsp;|&nbsp;&nbsp;COLLABORATE&nbsp;&nbsp;|&nbsp;&nbsp;EDUCATE&nbsp;&nbsp;|&nbsp;&nbsp;EMPOWER</div>
+    <div class="foot-url">nm.org/medicine/education</div>
+  </footer>
+
+</div>

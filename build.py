@@ -1,24 +1,30 @@
 #!/usr/bin/env python3
 """
-DOM AI Newsletter — reproducible build pipeline.
+DOM Education Newsletter — reproducible build pipeline.
 
-Turns one plain-Markdown issue file into a precise, identical-format
-HTML (email-ready, self-contained) and PDF (print-quality) every month.
+Turns one issue folder into a precise, identical-format 2-page newsletter as
+both HTML (email-ready, self-contained) and PDF (print-quality US Letter):
+
+    page 1  — DOM Education Committee content   (issues/<issue>/page1.md)
+    page 2  — AI in Medical Education           (issues/<issue>/page2.md)
+
+Shared masthead metadata (month, volume, editors, disclaimer) lives once in
+issues/<issue>/issue.yaml and is merged into both pages.
 
 Usage:
     .venv/bin/python build.py                 # builds the most recent issue
-    .venv/bin/python build.py 2026-07         # builds issues/2026-07
-    .venv/bin/python build.py issues/2026-07  # same thing
-    .venv/bin/python build.py 2026-07 --final # refuses to build unless every
-                                              #   source in sources.yaml is verified
+    .venv/bin/python build.py 2026-08         # builds issues/2026-08
+    .venv/bin/python build.py 2026-08 --final # refuses unless every source in
+                                              #   sources.yaml is verified
 
 Outputs land in <issue>/output/:
     newsletter-<issue>.html
     newsletter-<issue>.pdf
-(or with a -DRAFT suffix + watermark if any claim is unverified)
+(or with a -DRAFT suffix + watermark if any page-2 claim is unverified)
 
-Nothing in this script invents content. It only renders what is in
-content.md and reports the verification state recorded in sources.yaml.
+Nothing in this script invents content. It only renders what is in the page
+files and reports the verification state recorded in sources.yaml. The AI page
+(page 2) is the one held to the source-verification gate.
 """
 from __future__ import annotations
 
@@ -80,6 +86,10 @@ MD_EXTENSIONS = [
     "admonition",
 ]
 
+# The page files a full issue is built from, in printed order. Each may carry
+# its own front matter (title, etc.) layered on top of issue.yaml.
+PAGE_FILES = ["page1.md", "page2.md"]
+
 
 # --------------------------------------------------------------------------- #
 # Helpers
@@ -94,15 +104,16 @@ def resolve_issue(arg: str | None) -> Path:
     if arg:
         cand = Path(arg)
         if not cand.is_absolute():
-            # accept "2026-07" or "issues/2026-07"
             cand = (ISSUES / arg) if not str(arg).startswith("issues") else (ROOT / arg)
         if not cand.exists():
             fail(f"Issue folder not found: {cand}")
         return cand
-    # latest by folder name (YYYY-MM sorts correctly)
-    candidates = sorted(p for p in ISSUES.iterdir() if p.is_dir() and (p / "content.md").exists())
+    candidates = sorted(
+        p for p in ISSUES.iterdir()
+        if p.is_dir() and (list(p.glob("page*.md")) or (p / "content.md").exists())
+    )
     if not candidates:
-        fail("No issues found. Create one by copying issue_template/ into issues/YYYY-MM/")
+        fail("No issues found. Create one with ./new-issue.sh YYYY-MM")
     return candidates[-1]
 
 
@@ -114,39 +125,59 @@ def data_uri(path: Path) -> str:
     return f"data:{mime};base64,{b64}"
 
 
+def load_yaml(path: Path) -> dict:
+    if not path.exists():
+        return {}
+    return yaml.safe_load(path.read_text()) or {}
+
+
 def load_sources(issue_dir: Path) -> list[dict]:
-    sf = issue_dir / "sources.yaml"
-    if not sf.exists():
-        return []
-    raw = yaml.safe_load(sf.read_text()) or {}
-    return raw.get("sources", []) or []
+    return load_yaml(issue_dir / "sources.yaml").get("sources", []) or []
 
 
-def verification_state(sources: list[dict]) -> tuple[int, int, list[dict]]:
-    """Return (verified_count, total, unverified_list)."""
-    total = len(sources)
-    unverified = [s for s in sources if not s.get("verified", False)]
-    return total - len(unverified), total, unverified
+def render_body(text: str) -> str:
+    return md.markdown(text, extensions=MD_EXTENSIONS, output_format="html5")
+
+
+def load_pages(issue_dir: Path, shared: dict) -> list[dict]:
+    """Load each page file, layering issue.yaml under its own front matter."""
+    pages: list[dict] = []
+    page_paths = [issue_dir / f for f in PAGE_FILES if (issue_dir / f).exists()]
+    if not page_paths and (issue_dir / "content.md").exists():
+        page_paths = [issue_dir / "content.md"]   # single-page fallback
+
+    if not page_paths:
+        fail(f"No page files (page1.md / page2.md / content.md) in {issue_dir}")
+
+    for i, path in enumerate(page_paths):
+        post = frontmatter.load(path)
+        meta = {**shared, **post.metadata}         # page front matter wins
+        pages.append({
+            "meta": meta,
+            "body": render_body(post.content),
+            "index": i,
+            # page 2 (the AI page) carries the sourcing colophon; page 1 does not
+            "show_colophon": path.name in ("page2.md", "content.md"),
+        })
+    return pages
 
 
 # --------------------------------------------------------------------------- #
 # Build
 # --------------------------------------------------------------------------- #
 def build(issue_dir: Path, final: bool) -> None:
-    content_path = issue_dir / "content.md"
-    if not content_path.exists():
-        fail(f"No content.md in {issue_dir}")
+    shared = load_yaml(issue_dir / "issue.yaml")
+    pages = load_pages(issue_dir, shared)
 
-    post = frontmatter.load(content_path)
-    meta = post.metadata
-    body_html = md.markdown(post.content, extensions=MD_EXTENSIONS, output_format="html5")
-
-    # Verification gate ----------------------------------------------------- #
+    # Verification gate (applies to page 2's claims) ------------------------ #
     sources = load_sources(issue_dir)
-    verified, total, unverified = verification_state(sources)
+    total = len(sources)
+    unverified = [s for s in sources if not s.get("verified", False)]
+    verified = total - len(unverified)
     all_verified = total > 0 and not unverified
 
     print(f"\n  Issue:    {issue_dir.name}")
+    print(f"  Pages:    {len(pages)}")
     print(f"  Sources:  {verified}/{total} verified")
     if unverified:
         print("  ⚠ UNVERIFIED claims (will be watermarked DRAFT):")
@@ -159,9 +190,9 @@ def build(issue_dir: Path, final: bool) -> None:
     is_draft = not all_verified
     suffix = "-DRAFT" if is_draft else ""
 
-    # Logo (optional) ------------------------------------------------------- #
+    # Logo (optional reversed-white PNG/SVG for the purple band) ------------ #
     logo = ""
-    for name in ("logo.png", "logo.jpg", "logo.svg"):
+    for name in ("logo.png", "logo.svg", "logo.jpg"):
         p = ASSETS / name
         if p.exists():
             logo = data_uri(p)
@@ -177,12 +208,9 @@ def build(issue_dir: Path, final: bool) -> None:
     print_css = core_css + "\n" + (TEMPLATES / "styles_print.css").read_text()
 
     ctx = {
-        "meta": meta,
-        "body": body_html,
+        "pages": pages,
         "logo": logo,
-        "sources": sources,
         "is_draft": is_draft,
-        "auto_references": meta.get("auto_references", True),
         "verified": verified,
         "total": total,
         "build_date": _dt.date.today().isoformat(),
@@ -210,7 +238,7 @@ def build(issue_dir: Path, final: bool) -> None:
     print(f"  ✓ PDF   → {pdf_out.relative_to(ROOT)}")
 
     if is_draft:
-        print("\n  NOTE: Output is watermarked DRAFT because not all claims are verified.")
+        print("\n  NOTE: Output is watermarked DRAFT because not all page-2 claims are verified.")
     else:
         print("\n  ✓ All claims verified — final output ready to distribute.")
     print()

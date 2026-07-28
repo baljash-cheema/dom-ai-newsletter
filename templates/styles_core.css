@@ -106,7 +106,7 @@ body {
    =========================================================================== */
 .content { padding: 0; }
 
-/* Section header (markdown H2) — centered, flanked by rules, like page 1 */
+/* Section header (markdown H2) — condensed uppercase label with a brand rule */
 .content h2 {
   font-family: var(--display);
   font-weight: 700;
@@ -114,21 +114,11 @@ body {
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: var(--brand);
-  text-align: center;
-  margin: 16px 0 12px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
+  margin: 16px 0 11px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid var(--brand);
 }
-.content h2::before,
-.content h2::after {
-  content: "";
-  flex: 1 1 auto;
-  height: 2px;
-  background: var(--brand);
-  opacity: 0.55;
-}
-.content h2:first-child { margin-top: 8px; }
+.content h2:first-child { margin-top: 6px; }
 
 .content h3 {
   font-family: var(--sans);
@@ -350,6 +340,81 @@ code { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.9em; bac
   letter-spacing: 0.03em; text-transform: uppercase;
 }
 .foot-url { font-family: var(--sans); font-size: 10pt; color: #e4dcf5; }
+
+/* ===========================================================================
+   PAGE 1 — DOM Education Committee layout (clean, brand-matched)
+   =========================================================================== */
+
+/* Obvious placeholder markers for details to be filled in later */
+.ph { color: var(--warn); font-weight: 700; font-size: 0.85em; font-style: italic; }
+
+/* Who-we-are note + signature */
+.committee-note {
+  background: var(--bg-soft); border-radius: 6px; padding: 10px 14px;
+  margin: 10px 0; font-size: 10pt; color: var(--ink);
+}
+.committee-note .cn-label {
+  display: block; font-family: var(--sans); font-weight: 800; font-size: 7.5pt;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand); margin-bottom: 3px;
+}
+.committee-note a { color: var(--brand-2); }
+.signature { margin: 8px 0 0; font-style: italic; color: var(--ink); }
+.signature span { font-style: normal; font-size: 9pt; color: var(--ink-soft); }
+
+/* Topic grid (numbered tiles instead of 12 bespoke icons) */
+.topic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 10px 0; }
+.topic {
+  background: #fff; border: 1px solid var(--rule); border-left: 3px solid var(--brand);
+  border-radius: 6px; padding: 8px 11px;
+  font-size: 9pt; font-weight: 600; color: var(--ink);
+}
+.topic-num {
+  display: inline-block; vertical-align: middle;
+  width: 20px; height: 20px; line-height: 20px; text-align: center;
+  margin-right: 9px; border-radius: 50%;
+  background: var(--brand); color: #fff; font-size: 8pt; font-weight: 800;
+}
+.topic-label { vertical-align: middle; }
+.topic.new { border-left-color: var(--teal); }
+.topic.new .topic-num { background: var(--teal); }
+
+/* "In every issue" feature cards (4-up) */
+.feature-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 10px 0; }
+.fcard {
+  background: #fff; border: 1px solid var(--rule); border-top: 4px solid var(--brand);
+  border-radius: 6px; padding: 9px 11px;
+}
+.fcard-label {
+  display: block; font-family: var(--sans); font-weight: 800; font-size: 8pt;
+  letter-spacing: 0.05em; text-transform: uppercase; color: var(--brand); margin-bottom: 5px;
+}
+.fcard ul { margin: 0; padding-left: 15px; }
+.fcard li { font-size: 8.8pt; color: var(--ink-soft); margin-bottom: 3px; }
+.feature-cards .fcard:nth-child(2) { border-top-color: var(--blue); }
+.feature-cards .fcard:nth-child(2) .fcard-label { color: var(--blue); }
+.feature-cards .fcard:nth-child(3) { border-top-color: var(--teal); }
+.feature-cards .fcard:nth-child(3) .fcard-label { color: var(--teal); }
+.feature-cards .fcard:nth-child(4) { border-top-color: var(--orange); }
+.feature-cards .fcard:nth-child(4) .fcard-label { color: var(--orange); }
+
+/* Feedback + QR (light lavender panel; distinct from the purple footer band) */
+.feedback {
+  display: flex; align-items: center; gap: 16px;
+  background: #f0e9fb; border: 1px solid #e0d5f5; border-radius: 8px;
+  padding: 12px 16px; margin: 12px 0 0;
+}
+.feedback-text { flex: 1 1 auto; font-size: 9.5pt; color: var(--ink-soft); }
+.feedback-text .fb-title {
+  display: block; font-family: var(--sans); font-weight: 800; font-size: 10.5pt;
+  color: var(--brand); margin-bottom: 3px;
+}
+.feedback-text a { color: var(--brand-2); font-weight: 700; }
+.qr-box { flex: 0 0 auto; text-align: center; font-size: 7pt; color: var(--ink-soft); max-width: 130px; }
+.qr-ph {
+  width: 58px; height: 58px; margin: 0 auto 4px; background: var(--brand); color: #fff;
+  border-radius: 6px; font-weight: 800; font-size: 12pt;
+  display: flex; align-items: center; justify-content: center;
+}
 
 /* ===========================================================================
    Draft watermark

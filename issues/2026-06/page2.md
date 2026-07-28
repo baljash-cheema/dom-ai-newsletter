@@ -1,24 +1,5 @@
 ---
 title: "AI in Medical Education"
-department: "Northwestern University · Department of Medicine"
-issue_label: "Inaugural Issue"
-volume: 1
-issue_number: 1
-month_year: "August 2026"
-editors:
-  - "Yvonne Lee, MD"
-  - "Stefanie Reiff, MD"
-  - "Mac Walter, MD"
-  - "Josh Cheema, MD"
-  - "Katie Hufmeyer, MD"
-  - "Aashish Didwania, MD"
-auto_references: false
-disclaimer: >
-  Produced by the Department of Medicine Education AI in MedEd Subcommittee for
-  educational purposes. Tools and frameworks described here are not endorsements;
-  verify suitability and institutional approval before any clinical use. No
-  protected health information appears in this publication. Every claim is
-  verified against the full text before publication.
 ---
 
 ## Article of the Month
