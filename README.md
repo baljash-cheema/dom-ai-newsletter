@@ -1,10 +1,15 @@
-# AI in Clinical Medicine & Education — Monthly Newsletter
+# DOM Education Newsletter
 
-A reproducible monthly faculty newsletter from the Department of Medicine
-Education Committee. One plain-Markdown file per issue builds into a clean,
-identically-formatted **PDF** (print) and **HTML** (email) — with a built-in
-verification gate so nothing ships unless every factual claim is confirmed
-against a real source.
+A reproducible monthly newsletter from the Northwestern Department of Medicine
+Education Committee. Each issue builds from plain-Markdown source into one clean,
+identically-formatted **two-page** document — **PDF** (print) and **HTML**
+(email) — with a built-in verification gate so nothing ships unless every
+factual claim on the AI page is confirmed against a real source.
+
+**Page 1** — DOM Education Committee content (welcome, topics, events, policies,
+resources, highlights, feedback).
+**Page 2** — *AI in Medical Education*: one plain-language, source-verified
+Article of the Month plus a boxed Editor's Perspective.
 
 ## Quick start
 
@@ -13,41 +18,36 @@ against a real source.
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 
 # each month
-./new-issue.sh 2026-07     # create issues/2026-07 from the blank template
-#   …edit issues/2026-07/content.md  (write in plain Markdown)
-#   …list every factual claim in issues/2026-07/sources.yaml
-#   …ask Claude: "Run the editorial review on issue 2026-07"
-./build.sh 2026-07         # draft build (watermarked until all claims verified)
-./build.sh 2026-07 --final # final build — only succeeds when 100% verified
+./new-issue.sh 2026-08     # scaffold issues/2026-08 from the blank template
+#   …set the month/volume in issues/2026-08/issue.yaml
+#   …edit issues/2026-08/page1.md   (committee content)
+#   …edit issues/2026-08/page2.md   (AI Article of the Month)
+#   …list every page-2 claim in issues/2026-08/sources.yaml
+#   …ask Claude: "Run the editorial review on issue 2026-08"
+./build.sh 2026-08         # draft build (watermarked until all claims verified)
+./build.sh 2026-08 --final # final build — only succeeds when 100% verified
 ```
 
-Outputs land in `issues/2026-07/output/`.
-
-## What's in each issue
-**One page, one paper.** A single **Article of the Month** — a plain-language,
-source-verified summary of one study, plus a boxed **Editor's Perspective** that
-keeps opinion visibly separate from evidence. Nothing else.
+Outputs land in `issues/2026-08/output/`.
 
 ## How accuracy is guaranteed
-Every claim is recorded in the issue's `sources.yaml` with a resolvable
+Every page-2 claim is recorded in the issue's `sources.yaml` with a resolvable
 identifier (DOI / PMID / URL). A sub-agent editorial review
 (`workflow/editorial-review.md`) independently verifies each claim, copy-edits,
 and red-teams the weakest assertions. The build **refuses to produce a final,
 unwatermarked issue until every claim is verified** — the rule is enforced by
 the tooling, not by trust.
 
-## Layout
-See `issues/0000-demo/` for a layout sample (sample text, not real claims).
-
 ## Repo map
 | Path | What it is |
 |------|------------|
-| `build.py` / `build.sh` | the build pipeline (Markdown → HTML + PDF) |
+| `build.py` / `build.sh` | the build pipeline (Markdown → combined HTML + PDF) |
 | `new-issue.sh` | scaffolds a new month from the template |
-| `issue_template/` | blank `content.md` + `sources.yaml` to copy each month |
-| `templates/` | HTML layout + CSS (core / screen / print) |
-| `workflow/editorial-review.md` | the verification process |
-| `issues/<YYYY-MM>/` | one folder per published month |
+| `issue_template/` | blank `issue.yaml` + `page1.md` + `page2.md` + `sources.yaml` to copy each month |
+| `templates/` | HTML layout (`base` + `page`) + CSS (core / screen / print) |
+| `workflow/editorial-review.md` | the page-2 verification process |
+| `issues/<YYYY-MM>/` | one folder per issue — see `issues/2026-06/` for a full worked example |
+| `assets/` | optional `logo.png` (reversed-white) drops into the purple masthead band |
 | `CLAUDE.md` | full context for AI-assisted sessions |
 
 ## Built with, and licensed

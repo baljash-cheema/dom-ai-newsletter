@@ -8,11 +8,14 @@ suggest improvements**.
 ## Want to run your own newsletter from this?
 
 1. Fork the repo, then follow the **Quick start** in the [README](README.md).
-2. Each issue is one plain-Markdown file (`content.md`) plus a verification
-   ledger (`sources.yaml`) — no page-layout work required.
+2. Each issue is two plain-Markdown files (`page1.md`, `page2.md`) plus a shared
+   `issue.yaml` and a verification ledger (`sources.yaml`) — no page-layout work
+   required.
 3. Make it yours:
    - Brand colors live as CSS variables in `templates/styles_core.css` (`:root`).
-   - Masthead/title/editors are in each issue's Markdown frontmatter.
+   - Month / volume / editors live in each issue's `issue.yaml`; page titles in
+     each page's front matter. Drop a reversed-white `assets/logo.png` to replace
+     the built-in Northwestern Medicine lockup in the masthead band.
    - `./new-issue.sh YYYY-MM` scaffolds a fresh month from `issue_template/`.
 
 ## The one rule we don't bend: every claim is verified
@@ -29,7 +32,7 @@ No protected health information (PHI) belongs in any issue, ever.
 
 - **Found a bug or have an idea?** Open an issue.
 - **Sending a PR?** Keep it focused. If it touches the build, note how you tested
-  it — e.g., `./build.sh 0000-demo` should still produce clean HTML + PDF.
+  it — e.g., `./build.sh 2026-06` should still produce a clean two-page HTML + PDF.
 
 ## Questions / want help adapting it
 

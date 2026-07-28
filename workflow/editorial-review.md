@@ -18,10 +18,10 @@ The monthly review uses independent sub-agents so no single pass is trusted blin
    Sets `verified: true` and writes the supporting quote/location into `notes`,
    or leaves it `false` with an explanation.
 
-2. **Copy-Editor** — reads `content.md` for clarity, tone (faculty audience),
+2. **Copy-Editor** — reads `page2.md` for clarity, tone (faculty audience),
    accuracy of plain-language explanations, and that **opinion is visibly
    separated from fact** (Editor's Perspective boxes). Flags any sentence making a
-   factual claim that has *no* footnote pointing to `sources.yaml`.
+   factual claim that isn't recorded in `sources.yaml`.
 
 3. **Red-Team / Skeptic** — actively tries to find the weakest claim and refute
    it. Assumes something is wrong and looks for it: outdated stat, tool that
@@ -55,7 +55,7 @@ Claude will: spawn the Fact-Verifier across every `sources.yaml` entry (resolvin
 each DOI/PMID/URL with the PubMed and web tools), then the Copy-Editor and
 Red-Team passes, then report a table of every claim with its verdict and the
 supporting quote. Claude updates `sources.yaml` (`verified`, `verified_by`,
-`notes`) and edits `content.md` for anything that failed. **Claude does not flip a
+`notes`) and edits `page2.md` for anything that failed. **Claude does not flip a
 claim to verified without showing you the evidence.**
 
 ## The build gate

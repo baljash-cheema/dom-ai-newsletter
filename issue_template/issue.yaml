@@ -1,0 +1,23 @@
+# Shared masthead / issue metadata — merged into BOTH page1.md and page2.md.
+# Change these once per issue; each page file adds only its own title.
+month_year: "Month YYYY"
+issue_label: ""            # optional, e.g. "Inaugural Issue" — leave "" to omit
+volume: 1
+issue_number: 1
+
+# Editorial accountability for the AI page (page 2). Same names, same order,
+# every issue — update only if subcommittee membership changes.
+editors:
+  - "Yvonne Lee, MD"
+  - "Stefanie Reiff, MD"
+  - "Mac Walter, MD"
+  - "Josh Cheema, MD"
+  - "Katie Hufmeyer, MD"
+  - "Aashish Didwania, MD"
+
+disclaimer: >
+  Produced by the Department of Medicine Education AI in MedEd Subcommittee for
+  educational purposes. Tools and frameworks described here are not endorsements;
+  verify suitability and institutional approval before any clinical use. No
+  protected health information appears in this publication. Every claim is
+  verified against the full text before publication.

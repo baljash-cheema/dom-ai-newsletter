@@ -14,10 +14,13 @@ if [ -e "$DEST" ]; then
   exit 1
 fi
 mkdir -p "$DEST"
-cp issue_template/content.md "$DEST/content.md"
+cp issue_template/issue.yaml   "$DEST/issue.yaml"
+cp issue_template/page1.md     "$DEST/page1.md"
+cp issue_template/page2.md     "$DEST/page2.md"
 cp issue_template/sources.yaml "$DEST/sources.yaml"
 echo "✓ Created $DEST"
-echo "  1. Edit $DEST/content.md"
-echo "  2. Record every claim in $DEST/sources.yaml"
-echo "  3. Ask Claude to run the editorial-review pass"
-echo "  4. ./build.sh $ISSUE"
+echo "  1. Set the month/volume in $DEST/issue.yaml"
+echo "  2. Edit $DEST/page1.md  (committee content)"
+echo "  3. Edit $DEST/page2.md  (AI Article of the Month) + record every claim in sources.yaml"
+echo "  4. Ask Claude to run the editorial-review pass on page 2"
+echo "  5. ./build.sh $ISSUE     (then ./build.sh $ISSUE --final once verified)"
