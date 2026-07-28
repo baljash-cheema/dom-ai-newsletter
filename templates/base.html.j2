@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ meta.get('title', 'AI in Clinical Medicine & Education') }} — {{ meta.get('month_year', '') }}</title>
+<title>{{ meta.get('title', 'AI in Medical Education') }} — {{ meta.get('month_year', '') }}</title>
 <style>
 {{ css }}
 </style>
@@ -14,22 +14,40 @@
 
 <div class="page">
 
+  {# ---- Masthead: purple band, matches page 1 of the DOM Education Newsletter ---- #}
   <header class="masthead">
-    {% if logo %}<img class="logo" src="{{ logo }}" alt="logo">{% endif %}
-    <div class="masthead-text">
-      <div class="kicker">{{ meta.get('department', 'Department of Medicine') }} · Education Committee</div>
-      <h1 class="title">{{ meta.get('title', 'AI in Clinical Medicine & Education') }}</h1>
-      {% if meta.get('tagline') %}<div class="tagline">{{ meta.tagline }}</div>{% endif %}
+    <div class="mast-brand">
+      {% if logo %}
+        <img class="nm-logo" src="{{ logo }}" alt="Northwestern Medicine">
+      {% else %}
+        <div class="nm-lockup">
+          <span class="nm-mark">N</span>
+          <span class="nm-word">Northwestern<br><strong>Medicine</strong><sup>&reg;</sup></span>
+        </div>
+      {% endif %}
+      <div class="mast-dept">Department of Medicine</div>
     </div>
-    <div class="issue-meta">
-      {% if meta.get('volume') %}<div>Vol. {{ meta.volume }}{% if meta.get('issue_number') %} · No. {{ meta.issue_number }}{% endif %}</div>{% endif %}
-      <div class="issue-month">{{ meta.get('month_year', '') }}</div>
+
+    <div class="mast-title">
+      <h1>{{ meta.get('title', 'AI in Medical Education') }}</h1>
+      <div class="mast-sub">
+        {%- set bits = [] -%}
+        {%- if meta.get('issue_label') %}{% set _ = bits.append(meta.issue_label) %}{% endif -%}
+        {%- if meta.get('volume') %}{% set _ = bits.append('Vol. ' ~ meta.volume ~ (' · No. ' ~ meta.issue_number if meta.get('issue_number') else '')) %}{% endif -%}
+        {%- if meta.get('month_year') %}{% set _ = bits.append(meta.month_year) %}{% endif -%}
+        {{ bits | join('  ·  ') }}
+      </div>
+    </div>
+
+    <div class="mast-emblem" aria-hidden="true">
+      <svg viewBox="0 0 52 52" width="52" height="52">
+        <circle cx="26" cy="26" r="24" fill="none" stroke="#ffffff" stroke-width="2"/>
+        <path d="M26 17 C21 13.5 15 13.5 11.5 15.5 L11.5 35 C15 33 21 33 26 36.5 C31 33 37 33 40.5 35 L40.5 15.5 C37 13.5 31 13.5 26 17 Z"
+              fill="none" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"/>
+        <line x1="26" y1="17" x2="26" y2="36.5" stroke="#ffffff" stroke-width="2"/>
+      </svg>
     </div>
   </header>
-
-  {% if meta.get('editors') %}
-  <div class="byline">Edited by {{ meta.editors | join(', ') if meta.editors is iterable and meta.editors is not string else meta.editors }}</div>
-  {% endif %}
 
   <main class="content">
     {{ body }}
@@ -52,9 +70,19 @@
   </section>
   {% endif %}
 
-  <footer class="colophon">
+  {# ---- Colophon: disclaimer + editorial accountability (small print) ---- #}
+  <div class="colophon">
+    {% if meta.get('editors') %}
+    <p class="editors">Edited by the DOM Education AI in MedEd Subcommittee: {{ meta.editors | join(', ') if meta.editors is iterable and meta.editors is not string else meta.editors }}.</p>
+    {% endif %}
     <p class="disclaimer">{{ meta.get('disclaimer', 'This newsletter is for educational purposes within the Department of Medicine. Clinical AI tools described here are not endorsements; verify suitability and institutional approval before any clinical use. No protected health information appears in this publication.') }}</p>
-    <p class="build-note">Built {{ build_date }} · {{ verified }}/{{ total }} sources verified · created with <a href="https://claude.com/claude-code">Claude Code</a> · open-source (MIT) at <a href="https://github.com/baljash-cheema/dom-ai-newsletter">github.com/baljash-cheema/dom-ai-newsletter</a> — free for anyone to use or adapt</p>
+    <p class="build-note">Built {{ build_date }} · {{ verified }}/{{ total }} sources verified · open-source (MIT): <a href="https://github.com/baljash-cheema/dom-ai-newsletter">github.com/baljash-cheema/dom-ai-newsletter</a></p>
+  </div>
+
+  {# ---- Footer band: matches page 1 of the DOM Education Newsletter ---- #}
+  <footer class="mast-footer">
+    <div class="foot-words">CONNECT&nbsp;&nbsp;|&nbsp;&nbsp;COLLABORATE&nbsp;&nbsp;|&nbsp;&nbsp;EDUCATE&nbsp;&nbsp;|&nbsp;&nbsp;EMPOWER</div>
+    <div class="foot-url">nm.org/medicine/education</div>
   </footer>
 
 </div>

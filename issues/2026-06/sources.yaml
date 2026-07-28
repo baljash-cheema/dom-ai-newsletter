@@ -120,3 +120,13 @@ sources:
     verified: true
     verified_by: "full-text PDF p.791 'AI Engagement Recommendation' + Fig 3, 2026-06-29"
     notes: "p.791: 'With rare exceptions, the educator should encourage ongoing practice with AI... the learner can cautiously engage with the AI tool under indirect or intermittent direct supervision or that the learner can safely use the tool without supervision but with ongoing self-monitoring and education.' Fig 3: 'use AI to inform your reasoning rather than replace it.' We deliberately avoided the sample's overstated 'three choices incl. do-not-use'; framed as 'flag any task where AI shouldn't be relied on,' consistent with 'rare exceptions.'"
+
+  - id: s12
+    claim: "Figure 1 depicts a resident using an AI chatbot for a differential during a patient visit while the supervising educator weighs how to respond — wondering what prompts were used, whether the resident is questioning or accepting the AI's output, whether the AI can be entrusted with clinical reasoning, and how to intervene — recognizing the moment as an 'AI interaction' that calls for DEFT-AI. The newsletter's 'challenge of broaching' scene is our original adaptation of this figure (not a reproduction)."
+    citation: "Featured article (see s1), Figure 1."
+    doi: "10.1056/NEJMra2503232"
+    pmid: "40834302"
+    url: ""
+    verified: true
+    verified_by: "full-text PDF Figure 1 (p.788), 2026-07-28"
+    notes: "Fig 1 title: 'An Educator Witnessing a Learner's Use of Artificial Intelligence (AI).' Learner thought bubble: 'What might be causing Mr C's symptoms... let me ask ChatGPT...' Educator thoughts (verbatim): 'The resident is probably using the phone's AI. Now what? What prompts did the resident provide the AI?'; 'Is the resident questioning the AI or accepting its suggestions as is?'; 'Can this AI be entrusted with clinical reasoning? How should I intervene?' Flow boxes: 'I have witnessed an AI interaction' -> 'I must promote critical thinking in clinical reasoning and the use of AI: DEFT-AI.' Caption: educator 'recognizes the inherent challenge of trusting an AI tool that may not be fully reliable' and the interaction 'prompts the educator to intervene in what could be a high-risk scenario.' Our scene paraphrases these faithfully and is labeled 'adapted from Figure 1'; the NEJM illustration itself is NOT reproduced (copyright)."

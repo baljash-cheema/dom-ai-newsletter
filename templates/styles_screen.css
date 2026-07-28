@@ -1,26 +1,30 @@
 /* ===========================================================================
    SCREEN / EMAIL overrides — applied on top of styles_core.css
-   Centered, max-width column that renders well in browsers and email clients.
+   Centered US-Letter-proportioned card; purple bands span the full card width.
    =========================================================================== */
-body.screen {
-  background: #eceaf1;
-  padding: 24px 12px;
-}
+body.screen { background: #eceaf1; padding: 24px 12px; }
 body.screen .page {
-  max-width: 760px;
+  max-width: 780px;
   margin: 0 auto;
-  padding: 32px 40px 28px;
-  border-radius: 6px;
-  box-shadow: 0 2px 14px rgba(40, 24, 70, 0.12);
+  border-radius: 8px;
+  overflow: hidden;                       /* clip bands to the rounded card */
+  box-shadow: 0 2px 16px rgba(40, 24, 70, 0.14);
 }
-body.screen.draft .draft-banner {
-  max-width: 760px;
-  margin: 0 auto 10px;
-  border-radius: 6px;
-}
+body.screen .masthead { padding: 18px 30px; }
+body.screen .content  { padding: 22px 34px 0; }
+body.screen .colophon { margin: 16px 34px 0; }
+body.screen .mast-footer { padding: 14px 30px; }
+
+body.screen.draft .draft-banner { border-radius: 8px 8px 0 0; }
+
 @media (max-width: 640px) {
-  body.screen .page { padding: 22px 18px; }
-  .masthead { flex-direction: column; align-items: flex-start; gap: 8px; }
-  .issue-meta { text-align: left; }
-  .title { font-size: 19pt; }
+  body.screen .masthead { flex-direction: column; text-align: center; gap: 12px; padding: 18px 20px; }
+  body.screen .mast-brand { align-items: center; }
+  body.screen .content { padding: 18px 20px 0; }
+  body.screen .colophon { margin: 14px 20px 0; }
+  body.screen .mast-footer { flex-direction: column; gap: 6px; text-align: center; }
+  .mast-title h1 { font-size: 24pt; }
+  .content h2 { font-size: 14pt; }
+  .scene .scene-body { flex-direction: column; }
+  .scene .scene-moment { flex-basis: auto; }
 }
