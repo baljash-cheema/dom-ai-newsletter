@@ -117,12 +117,35 @@ def resolve_issue(arg: str | None) -> Path:
     return candidates[-1]
 
 
-def data_uri(path: Path) -> str:
+def data_uri(path: Path, mime: str | None = None) -> str:
     """Inline a file as a base64 data URI so the HTML is fully self-contained."""
-    mime, _ = mimetypes.guess_type(str(path))
-    mime = mime or "application/octet-stream"
+    if mime is None:
+        mime, _ = mimetypes.guess_type(str(path))
+        mime = mime or "application/octet-stream"
     b64 = base64.b64encode(path.read_bytes()).decode("ascii")
     return f"data:{mime};base64,{b64}"
+
+
+# Script fonts embedded into the CSS (self-contained output). Filename → family.
+SCRIPT_FONTS = {
+    "GreatVibes-subset.woff2": "Great Vibes",
+    "DancingScript-subset.woff2": "Dancing Script",
+}
+
+
+def font_faces_css() -> str:
+    """Build @font-face rules that inline any assets/fonts/*.woff2 as data URIs."""
+    rules = []
+    for fname, family in SCRIPT_FONTS.items():
+        p = ASSETS / "fonts" / fname
+        if not p.exists():
+            continue
+        uri = data_uri(p, mime="font/woff2")
+        rules.append(
+            f"@font-face {{ font-family: '{family}'; font-style: normal; "
+            f"font-weight: 400 700; src: url('{uri}') format('woff2'); }}"
+        )
+    return "\n".join(rules) + ("\n" if rules else "")
 
 
 def load_yaml(path: Path) -> dict:
@@ -203,7 +226,8 @@ def build(issue_dir: Path, final: bool) -> None:
         loader=FileSystemLoader(str(TEMPLATES)),
         autoescape=select_autoescape(["html", "xml"]),
     )
-    core_css = (TEMPLATES / "styles_core.css").read_text()
+    fonts_css = font_faces_css()
+    core_css = fonts_css + (TEMPLATES / "styles_core.css").read_text()
     screen_css = core_css + "\n" + (TEMPLATES / "styles_screen.css").read_text()
     print_css = core_css + "\n" + (TEMPLATES / "styles_print.css").read_text()
 

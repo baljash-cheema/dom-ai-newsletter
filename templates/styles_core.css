@@ -24,6 +24,11 @@
 
   --sans:    "Helvetica Neue", Arial, system-ui, sans-serif;
   --display: "Arial Narrow", "Helvetica Neue", Arial, sans-serif; /* condensed headline */
+  --script:  "Great Vibes", "Snell Roundhand", cursive;      /* welcome wordmark */
+  --script2: "Dancing Script", "Snell Roundhand", cursive;   /* signature */
+
+  --shadow:  0 2px 8px rgba(40, 24, 70, 0.10);   /* soft card shadow */
+  --card-bd: #ece7f5;                            /* soft card border */
 }
 
 * { box-sizing: border-box; }
@@ -106,19 +111,23 @@ body {
    =========================================================================== */
 .content { padding: 0; }
 
-/* Section header (markdown H2) — condensed uppercase label with a brand rule */
+/* Section header (markdown H2) — centered condensed label + short accent bar */
 .content h2 {
   font-family: var(--display);
   font-weight: 700;
-  font-size: 17pt;
-  letter-spacing: 0.02em;
+  font-size: 16.5pt;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--brand);
-  margin: 16px 0 11px;
-  padding-bottom: 5px;
-  border-bottom: 2px solid var(--brand);
+  text-align: center;
+  margin: 18px 0 13px;
 }
-.content h2:first-child { margin-top: 6px; }
+.content h2::after {
+  content: ""; display: block;
+  width: 52px; height: 3px; margin: 7px auto 0;
+  background: var(--brand); border-radius: 2px;
+}
+.content h2:first-child { margin-top: 4px; }
 
 .content h3 {
   font-family: var(--sans);
@@ -252,11 +261,12 @@ sup a { text-decoration: none; }
 
 /* ---- "Challenge of broaching" scene (adapted from the article's Figure 1) - */
 .scene {
-  border: 1px solid var(--rule);
-  border-radius: 8px;
+  border: 1px solid var(--card-bd);
+  border-radius: 10px;
   margin: 12px 0;
   overflow: hidden;
   background: #fff;
+  box-shadow: var(--shadow);
 }
 .scene .scene-head {
   font-family: var(--sans); font-weight: 800; font-size: 8.5pt;
@@ -342,78 +352,119 @@ code { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.9em; bac
 .foot-url { font-family: var(--sans); font-size: 10pt; color: #e4dcf5; }
 
 /* ===========================================================================
-   PAGE 1 — DOM Education Committee layout (clean, brand-matched)
+   PAGE 1 — DOM Education Committee layout (rich, brand-matched)
+   Icons are inline SVGs using stroke="currentColor", so each tile/badge's
+   `color` drives the icon, the accent stripe, and the label heading together.
    =========================================================================== */
 
 /* Obvious placeholder markers for details to be filled in later */
 .ph { color: var(--warn); font-weight: 700; font-size: 0.85em; font-style: italic; }
 
-/* Who-we-are note + signature */
+/* --- Welcome hero (script wordmark) ------------------------------------- */
+.welcome-script {
+  font-family: var(--script); font-weight: 400;
+  font-size: 48pt; line-height: 0.8; color: var(--brand); margin: 4px 0 0;
+}
+.welcome-kicker {
+  font-family: var(--display); font-weight: 700; font-size: 12.5pt;
+  letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-soft); margin: 2px 0 8px;
+}
+
+/* Who-we-are note + script signature */
 .committee-note {
-  background: var(--bg-soft); border-radius: 6px; padding: 10px 14px;
-  margin: 10px 0; font-size: 10pt; color: var(--ink);
+  background: var(--bg-soft); border: 1px solid var(--card-bd);
+  border-radius: 10px; padding: 11px 15px; margin: 10px 0; font-size: 10pt; color: var(--ink);
 }
 .committee-note .cn-label {
-  display: block; font-family: var(--sans); font-weight: 800; font-size: 7.5pt;
-  letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand); margin-bottom: 3px;
+  font-family: var(--sans); font-weight: 800; font-size: 7.5pt;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand);
 }
 .committee-note a { color: var(--brand-2); }
-.signature { margin: 8px 0 0; font-style: italic; color: var(--ink); }
-.signature span { font-style: normal; font-size: 9pt; color: var(--ink-soft); }
+.signature {
+  margin: 10px 0 0; font-family: var(--script2); font-weight: 600;
+  font-size: 20pt; line-height: 1; color: var(--brand);
+}
+.signature span {
+  display: block; font-family: var(--sans); font-weight: 600;
+  font-size: 8.5pt; color: var(--ink-soft); margin-top: 3px;
+}
 
-/* Topic grid (numbered tiles instead of 12 bespoke icons) */
-.topic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 10px 0; }
+/* --- Topic grid: colored icon + label, rotating accent ------------------- */
+.topics-panel {
+  background: var(--bg-soft); border: 1px solid var(--card-bd);
+  border-radius: 12px; padding: 13px 15px; margin: 6px 0;
+}
+.topic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; }
 .topic {
-  background: #fff; border: 1px solid var(--rule); border-left: 3px solid var(--brand);
-  border-radius: 6px; padding: 8px 11px;
+  display: table; width: 100%; color: var(--brand);   /* color = accent */
+  background: #fff; border: 1px solid var(--card-bd); border-left: 3px solid currentColor;
+  border-radius: 9px; padding: 8px 11px; box-shadow: var(--shadow);
+}
+.topic-ic { display: table-cell; width: 24px; vertical-align: middle; }
+.topic-ic svg { width: 22px; height: 22px; }
+.topic-label {
+  display: table-cell; vertical-align: middle; padding-left: 11px;
   font-size: 9pt; font-weight: 600; color: var(--ink);
 }
-.topic-num {
-  display: inline-block; vertical-align: middle;
-  width: 20px; height: 20px; line-height: 20px; text-align: center;
-  margin-right: 9px; border-radius: 50%;
-  background: var(--brand); color: #fff; font-size: 8pt; font-weight: 800;
-}
-.topic-label { vertical-align: middle; }
-.topic.new { border-left-color: var(--teal); }
-.topic.new .topic-num { background: var(--teal); }
+.topic:nth-child(6n+1) { color: var(--brand);   }
+.topic:nth-child(6n+2) { color: var(--blue);    }
+.topic:nth-child(6n+3) { color: var(--teal);    }
+.topic:nth-child(6n+4) { color: var(--orange);  }
+.topic:nth-child(6n+5) { color: var(--green);   }
+.topic:nth-child(6n+6) { color: var(--magenta); }
 
-/* "In every issue" feature cards (4-up) */
-.feature-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 10px 0; }
+/* --- "In every issue" feature cards (icon badge + colored footer) -------- */
+.feature-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 10px 0 0; }
 .fcard {
-  background: #fff; border: 1px solid var(--rule); border-top: 4px solid var(--brand);
-  border-radius: 6px; padding: 9px 11px;
+  background: #fff; border: 1px solid var(--card-bd); border-radius: 11px;
+  box-shadow: var(--shadow); overflow: hidden; color: var(--brand);   /* color = accent */
 }
+.fcard-body { padding: 12px 13px 11px; }
+.fcard-badge {
+  width: 34px; height: 34px; line-height: 34px; text-align: center;
+  border-radius: 50%; background: currentColor; margin-bottom: 8px;
+}
+.fcard-badge svg { width: 18px; height: 18px; vertical-align: middle; color: #fff; }
 .fcard-label {
-  display: block; font-family: var(--sans); font-weight: 800; font-size: 8pt;
-  letter-spacing: 0.05em; text-transform: uppercase; color: var(--brand); margin-bottom: 5px;
+  display: block; font-family: var(--sans); font-weight: 800; font-size: 8.5pt;
+  letter-spacing: 0.04em; text-transform: uppercase; color: currentColor; margin-bottom: 5px;
 }
 .fcard ul { margin: 0; padding-left: 15px; }
 .fcard li { font-size: 8.8pt; color: var(--ink-soft); margin-bottom: 3px; }
-.feature-cards .fcard:nth-child(2) { border-top-color: var(--blue); }
-.feature-cards .fcard:nth-child(2) .fcard-label { color: var(--blue); }
-.feature-cards .fcard:nth-child(3) { border-top-color: var(--teal); }
-.feature-cards .fcard:nth-child(3) .fcard-label { color: var(--teal); }
-.feature-cards .fcard:nth-child(4) { border-top-color: var(--orange); }
-.feature-cards .fcard:nth-child(4) .fcard-label { color: var(--orange); }
-
-/* Feedback + QR (light lavender panel; distinct from the purple footer band) */
-.feedback {
-  display: flex; align-items: center; gap: 16px;
-  background: #f0e9fb; border: 1px solid #e0d5f5; border-radius: 8px;
-  padding: 12px 16px; margin: 12px 0 0;
+.fcard-foot {
+  color: currentColor; font-family: var(--sans); font-weight: 700;
+  font-size: 7.5pt; letter-spacing: 0.02em; padding: 6px 13px;
 }
-.feedback-text { flex: 1 1 auto; font-size: 9.5pt; color: var(--ink-soft); }
+.feature-cards .fcard:nth-child(1) { color: var(--brand);  }
+.feature-cards .fcard:nth-child(2) { color: var(--blue);   }
+.feature-cards .fcard:nth-child(3) { color: var(--green);  }
+.feature-cards .fcard:nth-child(4) { color: var(--orange); }
+.feature-cards .fcard:nth-child(1) .fcard-foot { background: #efe9fb; }
+.feature-cards .fcard:nth-child(2) .fcard-foot { background: #e7f0f8; }
+.feature-cards .fcard:nth-child(3) .fcard-foot { background: #e9f5e7; }
+.feature-cards .fcard:nth-child(4) .fcard-foot { background: #fcf2e5; }
+
+/* --- Feedback + QR (light lavender panel) -------------------------------- */
+.feedback {
+  display: table; width: 100%;
+  background: #f0e9fb; border: 1px solid #e0d5f5; border-radius: 12px;
+  padding: 14px 18px; margin: 12px 0 0;
+}
+.feedback-icon { display: table-cell; width: 34px; vertical-align: middle; color: var(--brand); }
+.feedback-icon svg { width: 30px; height: 30px; }
+.feedback-text {
+  display: table-cell; vertical-align: middle; padding: 0 16px;
+  font-size: 9.5pt; color: var(--ink-soft);
+}
 .feedback-text .fb-title {
-  display: block; font-family: var(--sans); font-weight: 800; font-size: 10.5pt;
+  display: block; font-family: var(--sans); font-weight: 800; font-size: 11pt;
   color: var(--brand); margin-bottom: 3px;
 }
 .feedback-text a { color: var(--brand-2); font-weight: 700; }
-.qr-box { flex: 0 0 auto; text-align: center; font-size: 7pt; color: var(--ink-soft); max-width: 130px; }
+.qr-box { display: table-cell; width: 120px; vertical-align: middle; text-align: center; font-size: 7pt; color: var(--ink-soft); }
 .qr-ph {
-  width: 58px; height: 58px; margin: 0 auto 4px; background: var(--brand); color: #fff;
-  border-radius: 6px; font-weight: 800; font-size: 12pt;
-  display: flex; align-items: center; justify-content: center;
+  width: 56px; height: 56px; margin: 0 auto 4px; background: var(--brand); color: #fff;
+  border-radius: 8px; line-height: 56px; text-align: center; font-weight: 800; font-size: 11pt;
 }
 
 /* ===========================================================================
