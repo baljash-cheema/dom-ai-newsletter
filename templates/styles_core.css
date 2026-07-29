@@ -425,21 +425,32 @@ code { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.9em; bac
 .topic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
 .topic {
   text-align: center; color: var(--brand);   /* color = accent (icon) */
-  background: var(--bg-soft); border: 1px solid var(--card-bd);
-  border-radius: 9px; padding: 8px 4px 7px;
+  background: #fff; border: 1px solid var(--card-bd);
+  border-radius: 10px; padding: 9px 4px 7px;
 }
-.topic-ic { display: block; height: 26px; }
-.topic-ic svg { width: 26px; height: 26px; }
+.topic-ic {
+  display: inline-block; width: 38px; height: 38px; line-height: 38px;
+  border-radius: 50%; text-align: center;   /* soft accent-tinted disc */
+}
+.topic-ic svg { width: 21px; height: 21px; vertical-align: middle; }
 .topic-label {
-  display: block; margin-top: 5px; font-size: 7.4pt; font-weight: 600;
+  display: block; margin-top: 4px; font-size: 7.4pt; font-weight: 600;
   line-height: 1.12; color: var(--ink);
 }
+/* accent (drives the icon stroke via currentColor) */
 .topic:nth-child(6n+1) { color: var(--brand);   }
 .topic:nth-child(6n+2) { color: var(--blue);    }
 .topic:nth-child(6n+3) { color: var(--teal);    }
 .topic:nth-child(6n+4) { color: var(--orange);  }
 .topic:nth-child(6n+5) { color: var(--green);   }
 .topic:nth-child(6n+6) { color: var(--magenta); }
+/* soft tinted disc behind each icon (matching the accent) */
+.topic:nth-child(6n+1) .topic-ic { background: #ece5f7; }
+.topic:nth-child(6n+2) .topic-ic { background: #e3edf6; }
+.topic:nth-child(6n+3) .topic-ic { background: #ddf0ec; }
+.topic:nth-child(6n+4) .topic-ic { background: #fbecd8; }
+.topic:nth-child(6n+5) .topic-ic { background: #e7f4e4; }
+.topic:nth-child(6n+6) .topic-ic { background: #f7e2ef; }
 
 /* --- "In every issue" feature cards (icon badge + colored footer) -------- */
 .feature-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 10px 0 0; }

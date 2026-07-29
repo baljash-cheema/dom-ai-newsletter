@@ -41,7 +41,7 @@ body.pdf .page + .page { break-before: page; }
 .masthead, .mast-footer, .content h2, .content h2::after, .scene .scene-head,
 .landmark-tag, .content .admonition, .statcard, .cardrow .card, .content th,
 .draft-banner, .scene .scene-moment, .scene .scene-trigger,
-.topics-panel, .topic, .fcard, .fcard-badge, .fcard-foot,
+.topics-panel, .topic, .topic-ic, .fcard, .fcard-badge, .fcard-foot,
 .feedback, .qr-ph, .committee-note, .ai-callout, .ai-callout-badge span, .skyline svg {
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
@@ -109,9 +109,10 @@ body.pdf .page + .page { break-before: page; }
 .topics-panel { padding: 10px 11px 12px; }
 .topics-title { font-size: 12pt; margin-bottom: 9px; }
 .topic-grid { gap: 6px; }
-.topic { padding: 7px 3px 6px; }
-.topic-ic svg { width: 24px; height: 24px; }
-.topic-label { font-size: 7.2pt; margin-top: 4px; }
+.topic { padding: 8px 3px 6px; }
+.topic-ic { width: 34px; height: 34px; line-height: 34px; }
+.topic-ic svg { width: 19px; height: 19px; }
+.topic-label { font-size: 7.2pt; margin-top: 3px; }
 .feature-cards { gap: 8px; margin-top: 8px; }
 .fcard-body { padding: 9px 11px 8px; }
 .fcard-badge { width: 30px; height: 30px; line-height: 30px; margin-bottom: 6px; }
